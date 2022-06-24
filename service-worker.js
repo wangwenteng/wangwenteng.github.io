@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "eaee481f730b21b62f23fb6d9173cd20"
+    "revision": "7e686d2302b9033c4ecb760718f061fb"
   },
   {
     "url": "assets/css/0.styles.5e2bd223.css",
@@ -90,48 +90,48 @@ self.__precacheManifest = [
     "revision": "27823eba9c3137fad1aee983fdfdaa38"
   },
   {
-    "url": "assets/js/10.1513ff4d.js",
-    "revision": "2c2f5786f8bdff540c3e056b5ca7e652"
+    "url": "assets/js/10.b1240ee9.js",
+    "revision": "ad00255a8e6bfe428ed3e0d7ff8bf914"
   },
   {
-    "url": "assets/js/100.dc3ff992.js",
-    "revision": "5055dfa32a00179c94886b93106c03cd"
+    "url": "assets/js/100.e687abc2.js",
+    "revision": "bd18a49381d7a164b0e1b5a50b0335a1"
   },
   {
     "url": "assets/js/101.b453b687.js",
     "revision": "2e8fbb84f6b3e647a2da3774097e041b"
   },
   {
-    "url": "assets/js/102.77729282.js",
-    "revision": "af0fbe771f34ed1a5e0aba4f68ef3d6d"
+    "url": "assets/js/102.9be95467.js",
+    "revision": "a71ed41bef4117bef2555dba680149e0"
   },
   {
-    "url": "assets/js/103.6ada4c9e.js",
-    "revision": "1dc9372304400701c4c7a59bbdbe0ce6"
+    "url": "assets/js/103.aab6c132.js",
+    "revision": "3c5a99d7ce988d0825cdbbd302432975"
   },
   {
-    "url": "assets/js/104.dd54b1b6.js",
-    "revision": "ad73bdfd66f2c174f794cb0f1aff29d1"
+    "url": "assets/js/104.e28a9718.js",
+    "revision": "1a32c3ea8312233b37948e0f2bc39675"
   },
   {
-    "url": "assets/js/105.8deb61d2.js",
-    "revision": "8d771247d7846e8af9685419687dea74"
+    "url": "assets/js/105.3a9324cd.js",
+    "revision": "cd2dbb072be17c34ebd86dab300679a7"
   },
   {
-    "url": "assets/js/106.e547483c.js",
-    "revision": "19cd7543687422b19caff57f0b93d6f6"
+    "url": "assets/js/106.63b6bcd1.js",
+    "revision": "82688fd447a00273a50d7b96ea21140e"
   },
   {
-    "url": "assets/js/107.b7bd9048.js",
-    "revision": "5cd5d2029542720f643911d034cd6ef9"
+    "url": "assets/js/107.f2ab3c35.js",
+    "revision": "0d32de618f3a92b487dafa61a06c93b1"
   },
   {
-    "url": "assets/js/108.ad6922d7.js",
-    "revision": "ead056e32ed23e50373f61657f05ec8e"
+    "url": "assets/js/108.9ce2e711.js",
+    "revision": "db2d727620624f920c151d5cb20fa541"
   },
   {
-    "url": "assets/js/109.f2de2e58.js",
-    "revision": "5ecb0f8bf5dca129cac4e10188d4d02b"
+    "url": "assets/js/109.a9c39e09.js",
+    "revision": "bc6e1c15c20e5b9d37dceb236f54ee3d"
   },
   {
     "url": "assets/js/11.fc56e899.js",
@@ -146,32 +146,32 @@ self.__precacheManifest = [
     "revision": "de4a1669ac6d811f179225762dbec81b"
   },
   {
-    "url": "assets/js/112.04790f7f.js",
-    "revision": "86794eca86c8e7128fa5dde41ed87524"
+    "url": "assets/js/112.55983cc6.js",
+    "revision": "fbde3779ac682b7c95ff2ed0f69badeb"
   },
   {
-    "url": "assets/js/113.3f94fda3.js",
-    "revision": "64559ceefbe6c543ac630d44783921eb"
+    "url": "assets/js/113.98f52dae.js",
+    "revision": "1b2a87786be53e7b56a0870644fdcfec"
   },
   {
-    "url": "assets/js/114.6f40204b.js",
-    "revision": "337de8d47dd3bd9916b3e8bc62d18385"
+    "url": "assets/js/114.144378d1.js",
+    "revision": "d57b57ab7e7a04db20902d4653700dc6"
   },
   {
-    "url": "assets/js/115.4ce1d870.js",
-    "revision": "ab53ad6a040cb2e8d066766caeea1af6"
+    "url": "assets/js/115.c24f4dd2.js",
+    "revision": "f5172688832e7f756edf82a33c3b9ad5"
   },
   {
     "url": "assets/js/116.1d742884.js",
     "revision": "f5b2d60cbe0ef5c320567f60c4cf1609"
   },
   {
-    "url": "assets/js/117.66de33c6.js",
-    "revision": "cf10137c4139dc5b0c03f96d0931f366"
+    "url": "assets/js/117.dad2deaa.js",
+    "revision": "b35fc9553062ad6938bbd75ac633d6d0"
   },
   {
-    "url": "assets/js/118.d55e3bbf.js",
-    "revision": "6e5fd687d16b8fedbed00eac52b4da60"
+    "url": "assets/js/118.07d781b1.js",
+    "revision": "3102bef4bde4b95b8aa5faa0e6054181"
   },
   {
     "url": "assets/js/119.c104d1b3.js",
@@ -182,112 +182,112 @@ self.__precacheManifest = [
     "revision": "f50dbddf38116e3e881a521df5278221"
   },
   {
-    "url": "assets/js/120.bd1c9f96.js",
-    "revision": "3e90ef3ef20455a296a0cd3df45db778"
+    "url": "assets/js/120.a4ac45ec.js",
+    "revision": "5895862620862b9891f89de85ecf0254"
   },
   {
-    "url": "assets/js/121.31b4fcc1.js",
-    "revision": "412ff519e9718810fd35f9477d7c8a53"
+    "url": "assets/js/121.e4a98b9d.js",
+    "revision": "1cf74af823646808678fce985d603f8a"
   },
   {
-    "url": "assets/js/122.0f674a45.js",
-    "revision": "7732e6fdf367179172c42999754e398c"
+    "url": "assets/js/122.43b0ca5a.js",
+    "revision": "a84f46062051b02e9b1187db2cf749c1"
   },
   {
     "url": "assets/js/123.3e0b7a44.js",
     "revision": "90fb9c176601d4f717defa7df3ca5982"
   },
   {
-    "url": "assets/js/124.69da5fc4.js",
-    "revision": "48a96a6208492d14ab3ae57114e35b94"
+    "url": "assets/js/124.e3178c6c.js",
+    "revision": "4c11cfd212f324146cd37c2868a49527"
   },
   {
-    "url": "assets/js/125.a7d45e1d.js",
-    "revision": "09ca65834c55a4c43bddeeafa754120e"
+    "url": "assets/js/125.e9d4025d.js",
+    "revision": "7ddac75cd63cbd9edf1775947ec3cf62"
   },
   {
-    "url": "assets/js/126.e0c0d49d.js",
-    "revision": "e92276a0e1ad4ea74651fd14f77dea81"
+    "url": "assets/js/126.1a75fefe.js",
+    "revision": "fd8ce5edfe50e326bdd6f6e790221cfd"
   },
   {
     "url": "assets/js/127.d6eec92f.js",
     "revision": "eac050c2ea2648e16e04d71857b56745"
   },
   {
-    "url": "assets/js/128.7b8c4d70.js",
-    "revision": "7a810c8e027f03f431cf99b0357fb57f"
+    "url": "assets/js/128.66e3c0d7.js",
+    "revision": "7c90856408a01a2d0ca8d8a62a940af9"
   },
   {
-    "url": "assets/js/129.e24247ec.js",
-    "revision": "d77e9b1d6ef3e364fc2681d5bfa73a85"
+    "url": "assets/js/129.7a080264.js",
+    "revision": "6d2fa64678bb8da625d1c6f253e9fba9"
   },
   {
     "url": "assets/js/13.3f3c108a.js",
     "revision": "9427ec210be2ad9a51300e7038bc1143"
   },
   {
-    "url": "assets/js/130.621fadc7.js",
-    "revision": "0ec35472856ed7cfbd218ac7953dfdf7"
+    "url": "assets/js/130.447f81e2.js",
+    "revision": "6c1279dae21b370c6c2491e8edc2eec6"
   },
   {
-    "url": "assets/js/131.4d861aea.js",
-    "revision": "64def03b21e4801cc5496d5d9b00c297"
+    "url": "assets/js/131.a955c798.js",
+    "revision": "b22da7e1e280b7d8923c32ef785d2653"
   },
   {
-    "url": "assets/js/132.0caa953d.js",
-    "revision": "e82633c2bc553ebf4180fd4ffb6d5eb7"
+    "url": "assets/js/132.131add1e.js",
+    "revision": "e80cdb45f0a76e8f97ef60be7f0b8536"
   },
   {
-    "url": "assets/js/14.aadd47f4.js",
-    "revision": "147c4faee72b70a447176835bd8e49c2"
+    "url": "assets/js/14.f121e76c.js",
+    "revision": "5c5eb28253a01425533888181263a139"
   },
   {
-    "url": "assets/js/15.7e24f77a.js",
-    "revision": "8847fc52b17171c4c4d4905df89160a3"
+    "url": "assets/js/15.2476c59d.js",
+    "revision": "85dfc9680f46971d0fcda9a2a388f110"
   },
   {
-    "url": "assets/js/16.0855e17e.js",
-    "revision": "82290a20fe09a2e206a8ae65120998e2"
+    "url": "assets/js/16.53b1560b.js",
+    "revision": "2fe081c7ee6c95aff6144a641e512310"
   },
   {
     "url": "assets/js/17.c0624ff2.js",
     "revision": "9560c728e031ec98959110ae9711caf9"
   },
   {
-    "url": "assets/js/18.7d50d6e2.js",
-    "revision": "e11ca5972421e6973e8e37870f99f3f7"
+    "url": "assets/js/18.3ccd771a.js",
+    "revision": "7bdeaaf7f41f670655b60174c9bd9f1c"
   },
   {
-    "url": "assets/js/19.64d33de3.js",
-    "revision": "a89aa6d9f5e9fc24f62228638252094c"
+    "url": "assets/js/19.52ec8030.js",
+    "revision": "b40b507c5980d5a6b3798114048722d2"
   },
   {
-    "url": "assets/js/20.8aa89424.js",
-    "revision": "6d381e4eeb9ba2ec1699b7ee3e7056c0"
+    "url": "assets/js/20.87d153dd.js",
+    "revision": "806a5827d62c07419c8c6c0b6442a90d"
   },
   {
-    "url": "assets/js/21.97683091.js",
-    "revision": "c4e332c34bfa2e529ad3fa51c85d24bd"
+    "url": "assets/js/21.de0e8f67.js",
+    "revision": "6ef724de0983add3e932835598f25a5a"
   },
   {
-    "url": "assets/js/22.46853da1.js",
-    "revision": "af948778dd32b468a43416aff79c0e1c"
+    "url": "assets/js/22.bc9edfa5.js",
+    "revision": "763e5bef620b1617b30dbada5ce79ccd"
   },
   {
-    "url": "assets/js/23.5db474a4.js",
-    "revision": "99ed310f28af055d5643e0787fa11d5f"
+    "url": "assets/js/23.40286dde.js",
+    "revision": "f04f965b6fdc642e35c731de978fc6ca"
   },
   {
-    "url": "assets/js/24.0415f8e9.js",
-    "revision": "94d3d9db8587defbd6b172756bd8acfc"
+    "url": "assets/js/24.ffd394f7.js",
+    "revision": "194a1a2f501aecfb5e1e5e69d81a274a"
   },
   {
-    "url": "assets/js/25.2c5e1797.js",
-    "revision": "1d4c25bc263c2ac4172b86bd1c3a482d"
+    "url": "assets/js/25.79960584.js",
+    "revision": "de52013167e5555b0b4ab3960f8d1f7d"
   },
   {
-    "url": "assets/js/26.8ac1abcc.js",
-    "revision": "9c058d6f1fe64ec21a557961fb60ada9"
+    "url": "assets/js/26.d7d4ebf1.js",
+    "revision": "b69da48c4b714f0f8ee0defcb5808c67"
   },
   {
     "url": "assets/js/27.7f52c10c.js",
@@ -298,12 +298,12 @@ self.__precacheManifest = [
     "revision": "d9d0ba8178b2843419f5d0f56cd3a50a"
   },
   {
-    "url": "assets/js/29.85872ea6.js",
-    "revision": "779693d8cdbf63292ee18ed995fb02ec"
+    "url": "assets/js/29.f7266503.js",
+    "revision": "09a06e6295a08b7e16a558876efd46cc"
   },
   {
-    "url": "assets/js/30.505d4e68.js",
-    "revision": "03a127ee7e93791915000a03c453d831"
+    "url": "assets/js/30.b2fb4723.js",
+    "revision": "610196c8fc701357364138059c2bf7d6"
   },
   {
     "url": "assets/js/31.ed78701d.js",
@@ -314,20 +314,20 @@ self.__precacheManifest = [
     "revision": "21786f7d919d4cd1338b67dd3870a249"
   },
   {
-    "url": "assets/js/33.950b8a0d.js",
-    "revision": "bc068b6599893e8591f131a7349d54f2"
+    "url": "assets/js/33.2db80fe6.js",
+    "revision": "59c0dfa8997111c1605bd4db6002018a"
   },
   {
-    "url": "assets/js/34.97a50ad4.js",
-    "revision": "d0913e953acbeadecf0d7cf8424e49d4"
+    "url": "assets/js/34.56394f08.js",
+    "revision": "c699a194e794e70faad2b56a03f1357f"
   },
   {
-    "url": "assets/js/35.e3f07e81.js",
-    "revision": "e5492597b3d989ef48f80c7ed089fffc"
+    "url": "assets/js/35.9172f2c4.js",
+    "revision": "628ca3f92df1fd20f1253f3b3a3eaae6"
   },
   {
-    "url": "assets/js/36.040707b8.js",
-    "revision": "5797ba18904cfb0c055562e055a5f8f3"
+    "url": "assets/js/36.225ed4c8.js",
+    "revision": "424efabf38accb1fbfdeccc861dbab0b"
   },
   {
     "url": "assets/js/37.ba5a93c3.js",
@@ -358,24 +358,24 @@ self.__precacheManifest = [
     "revision": "ffa78f0e5052bd26aa178f75943acd17"
   },
   {
-    "url": "assets/js/43.74666cd1.js",
-    "revision": "346ab89a0d0a7439f5490a0713ad5072"
+    "url": "assets/js/43.c6427f66.js",
+    "revision": "713a64ddbab41303b3ae988cda9128b4"
   },
   {
     "url": "assets/js/44.b60d308d.js",
     "revision": "10e55d42156962bb5021b9479bc0cf05"
   },
   {
-    "url": "assets/js/45.a3612fd2.js",
-    "revision": "5fdb1a24cccbc751e5663204a674043d"
+    "url": "assets/js/45.ceb690ba.js",
+    "revision": "a219ca61fb11cecc7b73275e01815db7"
   },
   {
-    "url": "assets/js/46.08e72649.js",
-    "revision": "b43872631b15f20cc97bce4f48f63319"
+    "url": "assets/js/46.08d8ed44.js",
+    "revision": "e4a048e71a4e581c06b8371924005e82"
   },
   {
-    "url": "assets/js/47.4a40ed80.js",
-    "revision": "6906e376806ba95868ba991a7a81b689"
+    "url": "assets/js/47.187f8c9a.js",
+    "revision": "12f01ca619ec66c78e69959ff8ac8270"
   },
   {
     "url": "assets/js/48.33272b76.js",
@@ -422,12 +422,12 @@ self.__precacheManifest = [
     "revision": "29cfeffd8eb20272248233d999fcf84a"
   },
   {
-    "url": "assets/js/58.4294c555.js",
-    "revision": "d1d2a445bcb3d78898b51cfc71953f2b"
+    "url": "assets/js/58.745d74e3.js",
+    "revision": "782711589a436604f3728b64d9787f4c"
   },
   {
-    "url": "assets/js/59.e1a4167c.js",
-    "revision": "4a027e6ebba8686ae287557588d0937e"
+    "url": "assets/js/59.89766eca.js",
+    "revision": "eec6a0bde047cd444eae95c28bc6c9f0"
   },
   {
     "url": "assets/js/6.3e150692.js",
@@ -438,32 +438,32 @@ self.__precacheManifest = [
     "revision": "b23a17902ffdb57caa090db32a1ad330"
   },
   {
-    "url": "assets/js/61.92451b8e.js",
-    "revision": "9a2c6e6901e13cefa29e41e9977cf496"
+    "url": "assets/js/61.769529f7.js",
+    "revision": "994df6c2878b3a982d95d8e54ae0b2cb"
   },
   {
-    "url": "assets/js/62.866d5f55.js",
-    "revision": "08a9a98d4a28729e10dedbed7228f6f4"
+    "url": "assets/js/62.62492910.js",
+    "revision": "712a29dbe2d59d7a00c6e69019179919"
   },
   {
     "url": "assets/js/63.32030866.js",
     "revision": "1af6a121f39f5fc6afffaf2ee872e655"
   },
   {
-    "url": "assets/js/64.3466074c.js",
-    "revision": "f28b18f064ca4c8004e46aaa5565c615"
+    "url": "assets/js/64.8854d1b8.js",
+    "revision": "eb8a872c4424f1d884ba81a4fa0c7241"
   },
   {
-    "url": "assets/js/65.fafd3f67.js",
-    "revision": "4831866b3c754d952221b50d6209cbff"
+    "url": "assets/js/65.02b3a81d.js",
+    "revision": "9c04d9a65227601100d135de50a4a278"
   },
   {
-    "url": "assets/js/66.e1e9b2a9.js",
-    "revision": "ce9cdafb969c63275f5106ddcefd8eea"
+    "url": "assets/js/66.d081c7b1.js",
+    "revision": "523d6db67e7ebf18260bda5fbbef6dc5"
   },
   {
-    "url": "assets/js/67.30b3e7e8.js",
-    "revision": "d89bd86213856db23624e3f3878cac1f"
+    "url": "assets/js/67.ef110bc5.js",
+    "revision": "e0a759f292b1d19608930455eaa50b63"
   },
   {
     "url": "assets/js/68.74478be4.js",
@@ -486,16 +486,16 @@ self.__precacheManifest = [
     "revision": "b1a9d8766acbafd731b5ecc33b5e1e4f"
   },
   {
-    "url": "assets/js/72.e70af07b.js",
-    "revision": "86e816f7a841fe1e2dc07cdd0b7cffb5"
+    "url": "assets/js/72.b3e9eccd.js",
+    "revision": "bde7708e50824f6d62f07f18c4f1c67c"
   },
   {
     "url": "assets/js/73.2eab8618.js",
     "revision": "41ac1d69ae2351a28bd7678d2b0995cb"
   },
   {
-    "url": "assets/js/74.525ebbe6.js",
-    "revision": "2c41ef86b18d0f8ddfdf65a8e7dbe71a"
+    "url": "assets/js/74.f1541a77.js",
+    "revision": "29316fbef6a78c216a03ea39c067d084"
   },
   {
     "url": "assets/js/75.c5e4ef96.js",
@@ -506,8 +506,8 @@ self.__precacheManifest = [
     "revision": "11ef685303e3985538a3b4279784b237"
   },
   {
-    "url": "assets/js/77.5a7baee2.js",
-    "revision": "16bff051bcc22fec801d200c0400601c"
+    "url": "assets/js/77.4bf84494.js",
+    "revision": "51848b47e1de838fd3b13075c31972ca"
   },
   {
     "url": "assets/js/78.2f1f4ce8.js",
@@ -538,28 +538,28 @@ self.__precacheManifest = [
     "revision": "48459e55001ff866135c72885c28e743"
   },
   {
-    "url": "assets/js/84.9bba2649.js",
-    "revision": "5475310e7a04de91c8ef3e72d98a49c3"
+    "url": "assets/js/84.2c10f705.js",
+    "revision": "584a6cd52a0403b3b11360bae180d928"
   },
   {
     "url": "assets/js/85.f2095662.js",
     "revision": "b46f77c95220c409209dfc205abfd3c4"
   },
   {
-    "url": "assets/js/86.9306308e.js",
-    "revision": "21a5bb7cf5e5ccc74c397a9d453ec943"
+    "url": "assets/js/86.4db3cf38.js",
+    "revision": "8597b0f35af15f424c3e98d5320a95b3"
   },
   {
-    "url": "assets/js/87.8762f862.js",
-    "revision": "404f9c143fd510319e2660a919872374"
+    "url": "assets/js/87.51e7701e.js",
+    "revision": "22af6d8c4294fd8cf4f9ff2194f0a3c1"
   },
   {
-    "url": "assets/js/88.072cc092.js",
-    "revision": "8408fb0f1e526180ed9db1c3bcd6e6ea"
+    "url": "assets/js/88.279e3baa.js",
+    "revision": "46ba8b3392dff5b10afba0d634cb8928"
   },
   {
-    "url": "assets/js/89.e2fba221.js",
-    "revision": "26ac115d2f9f318dff88aa6c26ecc024"
+    "url": "assets/js/89.a3e812b6.js",
+    "revision": "5c2d75d0d45abf749634e9d37056dcdf"
   },
   {
     "url": "assets/js/9.e6b7ce22.js",
@@ -578,8 +578,8 @@ self.__precacheManifest = [
     "revision": "d4d3de8fb3ea3691bdbae707801cc789"
   },
   {
-    "url": "assets/js/93.702c1f46.js",
-    "revision": "7000ae19aacd663bbfbace5dfc13cb7e"
+    "url": "assets/js/93.7b5214cb.js",
+    "revision": "1380222159102ee9d255bae49a127a02"
   },
   {
     "url": "assets/js/94.396de713.js",
@@ -590,8 +590,8 @@ self.__precacheManifest = [
     "revision": "d5bce853875c73b8c825358290254231"
   },
   {
-    "url": "assets/js/96.529edea0.js",
-    "revision": "f4316283545b3d21bfc92e946b45db7d"
+    "url": "assets/js/96.7470fb3b.js",
+    "revision": "63c8d6df66733a0127bbaa07ec543aef"
   },
   {
     "url": "assets/js/97.a749d9fc.js",
@@ -602,12 +602,12 @@ self.__precacheManifest = [
     "revision": "46303d3b7232e4184cde28316d65a5a3"
   },
   {
-    "url": "assets/js/99.9965984c.js",
-    "revision": "a8f8285bc22c0832ac12b6b4d48f019d"
+    "url": "assets/js/99.ed30a845.js",
+    "revision": "e00f27e82003c25c5b919ac8a213f6bf"
   },
   {
-    "url": "assets/js/app.c9a01fb9.js",
-    "revision": "fcc7873c6ec9c44c463d96da881334fd"
+    "url": "assets/js/app.344fcbf5.js",
+    "revision": "204c7f7a169920a46a5c2c9a74aaf8b4"
   },
   {
     "url": "assets/js/baidu.js",
@@ -623,83 +623,83 @@ self.__precacheManifest = [
   },
   {
     "url": "categories/go web开发相关/index.html",
-    "revision": "4c211f25001729e94c173fad7e58e0fb"
+    "revision": "c690249865e9be34ab98001da42041f9"
   },
   {
     "url": "categories/go web开发相关/page/2/index.html",
-    "revision": "0122b1daadfc640b18aa1e415650d75a"
+    "revision": "8818c052616e8fbaa6b45bd926b8e5e3"
   },
   {
     "url": "categories/go 常用组件和技巧/index.html",
-    "revision": "ec568d920c68f56eee9f52264ed07186"
+    "revision": "19be2202cda2e5cd909a5ea8f911a335"
   },
   {
     "url": "categories/go 常用组件和技巧/page/2/index.html",
-    "revision": "44b21145ef97baf208e814a049073341"
+    "revision": "6b06488a7a5663b74a0dd210cb3d27e9"
   },
   {
     "url": "categories/go 微服务/index.html",
-    "revision": "efb2c39928435cc6a3717f48c234899a"
+    "revision": "e0f195923ecad801c58f5be2f01b32d5"
   },
   {
     "url": "categories/golang/index.html",
-    "revision": "c88330fd83fc2b79259ede137391472b"
+    "revision": "7faa4221cd728023f1e842526c02fbde"
   },
   {
     "url": "categories/golang标准库/index.html",
-    "revision": "1839d94270285fd1ca1cdb42aa609df5"
+    "revision": "c176cbf50b42f893b4af8601dd9fd07e"
   },
   {
     "url": "categories/go单元测试/index.html",
-    "revision": "1a4cbc9e5731adee4369cf449c192dbb"
+    "revision": "3a767bda467a73d2bce79fb39be33df3"
   },
   {
     "url": "categories/go语言介绍/index.html",
-    "revision": "a0227273d5dcdc2517c0403bb1017014"
+    "revision": "2adba576819469ce90bc0a663d7abad4"
   },
   {
     "url": "categories/go语言基础/index.html",
-    "revision": "d73e4b3569ab469d8c42d568caa63af1"
+    "revision": "575621e94d77cdc02d3c68eebf513690"
   },
   {
     "url": "categories/go语言基础/page/2/index.html",
-    "revision": "a97730655f9b967d36d98cb758af4c00"
+    "revision": "2d546ccf8c71c588123ca102c30a5861"
   },
   {
     "url": "categories/go语言标准库/index.html",
-    "revision": "c90c0330b1ca174f060219f1402bbf70"
+    "revision": "38f237cd7d109fd4bf4d2b0987b6da8f"
   },
   {
     "url": "categories/index.html",
-    "revision": "d87e321630dab2aaf6f0c27e5a4fd59a"
+    "revision": "dfa7f2e5dbd7f7d263b8350996f7b106"
   },
   {
     "url": "categories/java/index.html",
-    "revision": "62d48dc21b07a975d8cdb715977419cb"
+    "revision": "09ffceec0a35f90bb8de8824de2d6ccd"
   },
   {
     "url": "categories/Java基础/index.html",
-    "revision": "fa3b318913ca1aaf647785168a265ca1"
+    "revision": "e0fc44818ced723965a60a22fddf604a"
   },
   {
     "url": "categories/react/index.html",
-    "revision": "ab9bba025b7717f6a036f620c732b1d7"
+    "revision": "973d5393551ed2d7344f4c25d4319dbb"
   },
   {
     "url": "categories/react/page/2/index.html",
-    "revision": "3e3d42b06dbbba1cc066906162a0fe0b"
+    "revision": "89074666f9ffadbd8b2ff860bb0060b7"
   },
   {
     "url": "categories/vue/index.html",
-    "revision": "807247938a3c86c9ed3cea9ac5f5ca36"
+    "revision": "1fe401af149e3d80e15b24b53bf1c048"
   },
   {
     "url": "categories/前端/index.html",
-    "revision": "7c685e91f24c86de16f5d72a8994cc75"
+    "revision": "f1965843789a277949654a3daf7f0922"
   },
   {
     "url": "categories/数据库相关/index.html",
-    "revision": "67742ce80fd8763b6247e028e5c676a0"
+    "revision": "4d27d02b9c9923b024b7729b71e29bb5"
   },
   {
     "url": "css/style.css",
@@ -707,467 +707,467 @@ self.__precacheManifest = [
   },
   {
     "url": "front_end/react/00summary.html",
-    "revision": "b22ce65e236ad0a973205f78294ac02a"
+    "revision": "4f687b059d20580121b3c5978d9ba0b3"
   },
   {
     "url": "front_end/react/01-webpack.html",
-    "revision": "407db616fb4012092acc675fe89cc4bb"
+    "revision": "cea14b1ed4f7e78566f91af8aea105fd"
   },
   {
     "url": "front_end/react/02-about-react.html",
-    "revision": "09f0fd76936258be879ff3d022f2239c"
+    "revision": "298b3a1067a502f0ca703b6b1ab8cd3e"
   },
   {
     "url": "front_end/react/03-getting-started.html",
-    "revision": "28d3ba65b863a9843cf0d81121da8550"
+    "revision": "2e04695a26b8cfd04b4f1e60d1cbe349"
   },
   {
     "url": "front_end/react/04-jsx-component.html",
-    "revision": "e4f0febf25726e4753e7f803ba71e453"
+    "revision": "995195b8a21a496f237c85658ffe052c"
   },
   {
     "url": "front_end/react/05-data-rendering.html",
-    "revision": "c104660eb24aafbdf94091ff39709d57"
+    "revision": "d3ca31094d4ca36cf746c7275e0013c9"
   },
   {
     "url": "front_end/react/06-form.html",
-    "revision": "050c835cc0e2f84aa2546ec272ec09ef"
+    "revision": "b232594ef662ff79e5ba099c6ee4c114"
   },
   {
     "url": "front_end/react/06-styles.html",
-    "revision": "8620569798bcd332d6ca00fa15b73230"
+    "revision": "52929c87164a659b6aef25522cc14846"
   },
   {
     "url": "front_end/react/07-todo-list.html",
-    "revision": "688b239dd1e4399cd45e52c482422600"
+    "revision": "ad8d3651b990e619590b3a9a38473d3d"
   },
   {
     "url": "front_end/react/09-event.html",
-    "revision": "a99f2e28cfa27a6f76b82fda34ec4f79"
+    "revision": "876e5b5ec048d29acb8e4b5beeb8a42a"
   },
   {
     "url": "front_end/react/10-life-times.html",
-    "revision": "1ee06ae9df0517d1a7b1eee284e512d3"
+    "revision": "98bc0a2c11062e635210c5ae1725507b"
   },
   {
     "url": "front_end/react/11-Portal.html",
-    "revision": "bdd7b39f3c4c2b6b0cc379156d0a6a23"
+    "revision": "2c9c2084afb102185dad12626b2991ff"
   },
   {
     "url": "front_end/react/12-react-hooks.html",
-    "revision": "3f3c8ba23222d1cebdf998582204c05f"
+    "revision": "9f09d59ed3e4b1901ae77765e6d15b1a"
   },
   {
     "url": "front_end/react/13-component-communication.html",
-    "revision": "52c1bae6dc6d0803c1bbef94f6f8cbe6"
+    "revision": "b0b2ef972f89137cbd02f7aa0878a807"
   },
   {
     "url": "front_end/react/14-hoc.html",
-    "revision": "0eb55d024de08d30fd393e082e61f7b0"
+    "revision": "cee049ef1bf157d77174c5ee98eb172e"
   },
   {
     "url": "front_end/react/15-redux.html",
-    "revision": "4db6e57b31d54dc1e4ed63a0c1e87155"
+    "revision": "ced882804b73ec606e31ce5e431dcf16"
   },
   {
     "url": "front_end/react/16-react-router.html",
-    "revision": "e8088e78b10730f65cfa1d78e55af70e"
+    "revision": "863d50e51a0df36b3ed62a913efffc94"
   },
   {
     "url": "front_end/react/17-immutable.html",
-    "revision": "26a4ad7e61f299155bea0545703f1ad7"
+    "revision": "fc9a94c077db759e77708bf0b3c220be"
   },
   {
     "url": "front_end/react/18-mobx.html",
-    "revision": "e831a2476a77d9ebf65042f03d1e71d7"
+    "revision": "7f3eb1cae77634cf1a60b6ba404bb953"
   },
   {
     "url": "front_end/summary.html",
-    "revision": "9cbee5c87c02e7326b3a350aa9cc133a"
+    "revision": "2af3c6def631dadb044df789e110b864"
   },
   {
     "url": "front_end/vue/00summary.html",
-    "revision": "808015d92962702457117f2dbdba75fa"
+    "revision": "2de7452f1d9cbba202b4a14b3208b18d"
   },
   {
     "url": "golang/GORM教程/00summary.html",
-    "revision": "c548a6d1f34f452476e5a53003819786"
+    "revision": "b4404e5ba5b8569725964d2528b3b433"
   },
   {
     "url": "golang/go语言介绍/00summary.html",
-    "revision": "8a65e59ad9f19d358fed8096b1ead2b6"
+    "revision": "f32e3d1d9d64b0c354ff52cc5eba94a3"
   },
   {
     "url": "golang/go语言介绍/01about_golang.html",
-    "revision": "ac25f4c804329ef70db474193d59bce9"
+    "revision": "193dfbb035fa39eb8189a99222535d6c"
   },
   {
     "url": "golang/go语言介绍/02install_go_dev.html",
-    "revision": "57c121cd972212b943526230ea56f9d4"
+    "revision": "8b75133ce80b47e9b00464fb3876b192"
   },
   {
     "url": "golang/go语言介绍/03go_dependency.html",
-    "revision": "a9f669598144cedd3f847a61f5c08d46"
+    "revision": "896e0ac6c51c31e967e1906cfa00d012"
   },
   {
     "url": "golang/go语言介绍/04go_modules.html",
-    "revision": "e7ddc269a96677d46001c9e7f549e8e8"
+    "revision": "19a67722ed209f1f2da610d34632686e"
   },
   {
     "url": "golang/go语言基础/00summary.html",
-    "revision": "93832e9342c90a0afafb29ab26008421"
+    "revision": "0c43820e06ec06a517630831b79965a1"
   },
   {
     "url": "golang/go语言基础/01_var_and_const.html",
-    "revision": "9857e5e4ced58b834a25a75ce724956d"
+    "revision": "ae08dd417560ed8548c3c4bf5a6d3a72"
   },
   {
     "url": "golang/go语言基础/02_datatype.html",
-    "revision": "8a3fd5eec9e7e767c9e2ba5f905ca827"
+    "revision": "cbae13bfdc34e115d5508858e031b031"
   },
   {
     "url": "golang/go语言基础/02_go_command.html",
-    "revision": "f2acfd696ce3b4331896bcf92de762a7"
+    "revision": "9a8939c5ca35ff7789adcdc889b0e366"
   },
   {
     "url": "golang/go语言基础/03_operators.html",
-    "revision": "d0aa5f0e5158b49a5746753bc00b8475"
+    "revision": "b905636a176e54dcfc7db64829574bc4"
   },
   {
     "url": "golang/go语言基础/03_underline.html",
-    "revision": "1baae202e596ed82457913f0f79e6ed9"
+    "revision": "8922e9773b0808f74ade3853603e251a"
   },
   {
     "url": "golang/go语言基础/04_Process_control.html",
-    "revision": "7972b10259f3013058ceafd33a7912c0"
+    "revision": "be006d71743810245b93a785b1042b66"
   },
   {
     "url": "golang/go语言基础/05_array.html",
-    "revision": "10df8231f77e7e5098e6367d7bca9f2f"
+    "revision": "82925615ab192684f460ffb0a3ee18ec"
   },
   {
     "url": "golang/go语言基础/06_slice.html",
-    "revision": "fd133d0485e59b74c73dbff96b42e91f"
+    "revision": "a66676c69aa4d750a77b398b5d4be0dd"
   },
   {
     "url": "golang/go语言基础/07_pointer.html",
-    "revision": "41f9e17dc8d457a2dfac4e9d750c1519"
+    "revision": "4417e90952de01e8b73e19cb0f40cb10"
   },
   {
     "url": "golang/go语言基础/08_map.html",
-    "revision": "67f4b0eda0895fc75165331d93d30ecb"
+    "revision": "3562191cb71942cf222e030b80066cc8"
   },
   {
     "url": "golang/go语言基础/09_function.html",
-    "revision": "2b4639ef2ae13321d215bde5012acf25"
+    "revision": "c7b8702a40d3b9bf11edc087d5523c35"
   },
   {
     "url": "golang/go语言基础/10_struct.html",
-    "revision": "61f59e0ee42f1dbdea7b35e1ff1e8ab0"
+    "revision": "e436805ad31b6a84e2f74a00dd327cae"
   },
   {
     "url": "golang/go语言基础/11_package.html",
-    "revision": "c1de8a01389f7eb3e57a9f006091dc95"
+    "revision": "c4dabeb82bb69b8687b7851dd3b02933"
   },
   {
     "url": "golang/go语言基础/12_interface.html",
-    "revision": "6e0f828850b91651a58f75cdaa72d855"
+    "revision": "60b797f2fb3c77bab59bf0726e7af7c2"
   },
   {
     "url": "golang/go语言基础/13_errors.html",
-    "revision": "e19cd77243490b2a7a9e9d8c30827073"
+    "revision": "6e4262dbf3df91b3ffe6b0d538d6c4e7"
   },
   {
     "url": "golang/go语言基础/13_reflect.html",
-    "revision": "fcdd1d8b230b4d8f2ff9069eb23d1c39"
+    "revision": "5e6cec7273c5a9ab7dac94a9eee7b9be"
   },
   {
     "url": "golang/go语言基础/14_concurrence.html",
-    "revision": "a8b96ca229171b4fbd99ccbeb09b6348"
+    "revision": "73d2b30f58fde6ca6373646f826d5656"
   },
   {
     "url": "golang/go语言基础/15_error-in-goroutine.html",
-    "revision": "cc11652bea601fb44e3a65ed8cf64676"
+    "revision": "c6f06bebf7ccd13f9761f5ef53c3fe4e"
   },
   {
     "url": "golang/go语言基础/15_socket.html",
-    "revision": "54bca0727855b0c767bc40e440c6a24a"
+    "revision": "f7ec51c86467e2a4730b21ecfc3f2f5f"
   },
   {
     "url": "golang/go语言基础/16_unit-test.html",
-    "revision": "d7be2ef49f3db87bc904e30fba0b192a"
+    "revision": "5e0dfe485d1c821fb5b2337f952b93ae"
   },
   {
     "url": "golang/go语言常用标准库/00summary.html",
-    "revision": "5089b11691ee3f5dfd83ba83697de0e4"
+    "revision": "c06264a9dd7f09f723c9e5dbe78304c5"
   },
   {
     "url": "golang/go语言常用标准库/01_go_fmt.html",
-    "revision": "3e19b0e793c72feecf11916a385c3a2e"
+    "revision": "b1ed20afc204b808b79b7e1238dc6732"
   },
   {
     "url": "golang/go语言常用标准库/02go_time.html",
-    "revision": "c77b70cfa2b5d90c4dafb2f48ec72713"
+    "revision": "9b776f871ae0f452dbf8ef9707abd2a1"
   },
   {
     "url": "golang/go语言常用标准库/03go_flag.html",
-    "revision": "3932447ea78d2be0af3601c9753534a9"
+    "revision": "ec9f34ced00c0960ca7e1d5282053a6f"
   },
   {
     "url": "golang/go语言常用标准库/04go_log.html",
-    "revision": "9c3b73d6233d5ceeff6231fb19c31419"
+    "revision": "4d66c386e01e82abaf66c1f42a61ac10"
   },
   {
     "url": "golang/go语言常用标准库/05go_file.html",
-    "revision": "ac1440572e2ea02edf4831318cb80e14"
+    "revision": "055cdf5cdb9687815fa8f76b1f493a4b"
   },
   {
     "url": "golang/go语言常用标准库/06go_nethttp.html",
-    "revision": "f7871b9a66bb160d0064dfdc2ec2f339"
+    "revision": "59fdd67e234621450d065f89061d4438"
   },
   {
     "url": "golang/go语言常用标准库/07go_strconv.html",
-    "revision": "43b5afbc690f53a738ab365f4e16c447"
+    "revision": "fe26a57e269e6771053539d06835145c"
   },
   {
     "url": "golang/go语言常用标准库/08go_Context.html",
-    "revision": "1597bd107e7ebe558b2ebb1d5e2272d4"
+    "revision": "238024091a1101459c442cafb78ae5a6"
   },
   {
     "url": "golang/summary.html",
-    "revision": "6a2368a02b5beb74a92c634a36d58edf"
+    "revision": "722bbfb44af325fa4ce4fe4d1db11a8f"
   },
   {
     "url": "golang/Web开发相关/00summary.html",
-    "revision": "ff323693310e0e2cfb727661758cd4bd"
+    "revision": "aeb772be12a1ca2a46ab8d22f76b9d93"
   },
   {
     "url": "golang/Web开发相关/01go_template.html",
-    "revision": "2f4ed219fdd79ffe6f704de9946d77a4"
+    "revision": "93376b70c2415fbaa9cecf509c8e91c3"
   },
   {
     "url": "golang/Web开发相关/02go_gin.html",
-    "revision": "59f62eb8161bcf0554ad73009201a07f"
+    "revision": "8ad6832f30e0a133d8f2cdd6c94b29a1"
   },
   {
     "url": "golang/Web开发相关/03go_gin_routes_registry.html",
-    "revision": "bf80007d04cd97e6480143a4171f8988"
+    "revision": "320c818e3b816215061778bdf28e2125"
   },
   {
     "url": "golang/Web开发相关/04go_json-web-token.html",
-    "revision": "59c2c729768381c6966b8d44df5b8a1d"
+    "revision": "d90c9d1c2b29b9995727c2a64c8830ea"
   },
   {
     "url": "golang/Web开发相关/05go_live_reload_with_air.html",
-    "revision": "7c5732daa3a200fee41afb1f8ede702b"
+    "revision": "a4dc49d90f58fa4f7cfa3597faae6720"
   },
   {
     "url": "golang/Web开发相关/06graceful_shutdown.html",
-    "revision": "63669b1b56b3fd359b6e9b505aa4619e"
+    "revision": "2f5e012c84c13513aca97cc68bec635a"
   },
   {
     "url": "golang/Web开发相关/07how_to_deploy_app_by_docker.html",
-    "revision": "5ce5da0e315c8b9a915f15d05fb9d23f"
+    "revision": "8910c957afc7002fe5599bc5a6b0d4bf"
   },
   {
     "url": "golang/Web开发相关/08Cookie_Session.html",
-    "revision": "110e6f65b8c4b00e73facd4256efd78d"
+    "revision": "95acc8b7824d35ba93b563836c24affd"
   },
   {
     "url": "golang/Web开发相关/09use_zap_in_gin.html",
-    "revision": "637c002f04b501aa2fa48661c0daaba3"
+    "revision": "92e72ab8742cb686b7ffc488fec4e3ac"
   },
   {
     "url": "golang/Web开发相关/10read_gin_sourcecode.html",
-    "revision": "eb77fb32f13e84429bf49ca4e3a297b4"
+    "revision": "c84193c7c61ef9dfa0fd7dade8efa38d"
   },
   {
     "url": "golang/Web开发相关/11validator_usages.html",
-    "revision": "4607080643bcb5e26019333a996ce33f"
+    "revision": "0bce0ca621a747a48d8c18c777af77f0"
   },
   {
     "url": "golang/Web开发相关/12gin_swagger.html",
-    "revision": "91ac069ec46fea95ec18384c46edabde"
+    "revision": "a3e0e9ba120a70f7ed633815bd53845c"
   },
   {
     "url": "golang/Web开发相关/13benchmark_tool.html",
-    "revision": "3895c0cb7b32da59db0b0892600f940a"
+    "revision": "147852fe05c0ad428818c50e2a21dd06"
   },
   {
     "url": "golang/Web开发相关/14ratelimit.html",
-    "revision": "cb765b6ff2b19dd80dd93989138ae728"
+    "revision": "c4d9b827b042f7e88a4482fcd6cc760e"
   },
   {
     "url": "golang/Web开发相关/15deploy_go_app.html",
-    "revision": "1ffa064c4d9ea105a6abc1743d157788"
+    "revision": "987ce9ad5813e35d634abd19e8b1e59d"
   },
   {
     "url": "golang/单元测试/00summary.html",
-    "revision": "259391ddb4d9af0317317a461891c562"
+    "revision": "19a5fbaf093b8ddac56f1ee15a586a5a"
   },
   {
     "url": "golang/单元测试/01unit_base.html",
-    "revision": "664dc73ca097458a98e0da1d44a5c3dd"
+    "revision": "e72923803cd273d04f99b26ea1948389"
   },
   {
     "url": "golang/单元测试/02unit_socket.html",
-    "revision": "7788327a6b9b836213f8b2ff61a319a6"
+    "revision": "bd9c2d000af57957bf7dd1d1b5486bd0"
   },
   {
     "url": "golang/单元测试/03unit_mysql_redis.html",
-    "revision": "82dc29c3bf72fce8401d2789b6e2487a"
+    "revision": "79b96abf89f2fe3314c0f00fe85274d8"
   },
   {
     "url": "golang/单元测试/04unit_mock.html",
-    "revision": "d20f4a2f3c3f67b5fa8fc8593ff31353"
+    "revision": "cc1499e647f58113a2025f11d4fecf4a"
   },
   {
     "url": "golang/单元测试/05unit_monkey.html",
-    "revision": "7321227e9c9a429bf28a6ec27869a26a"
+    "revision": "618081c95ab652ebee746f2fc7a48081"
   },
   {
     "url": "golang/单元测试/06unit_goconvey.html",
-    "revision": "a71971246ffcc79bd5e8e48d9cb5fa73"
+    "revision": "d7f36b8a6fd53ec497710a1a53ddf481"
   },
   {
     "url": "golang/单元测试/07unit_code.html",
-    "revision": "c05fea4e3ae8813d844e3535f3e25256"
+    "revision": "07635f821d33e583c8f41ec5847f6bb0"
   },
   {
     "url": "golang/常用组件和技巧/00summary.html",
-    "revision": "bfbb66709dea6fc86cfbd94fa3aa8829"
+    "revision": "4079fa092ffdd18b231369d655c01160"
   },
   {
     "url": "golang/常用组件和技巧/01json-tricks.html",
-    "revision": "8802158392fc1b4929787d72fc40a3d3"
+    "revision": "25fcee1a49230e5d6ee5ddd985fb2b0f"
   },
   {
     "url": "golang/常用组件和技巧/02option.html",
-    "revision": "ead7e5868843a572df2bd73bf44242b3"
+    "revision": "249e14354e2463b19f3409b20fea0384"
   },
   {
     "url": "golang/常用组件和技巧/03singleton_in_go.html",
-    "revision": "aa9d92af4a9a1897fa42f78929f3a524"
+    "revision": "f7f00d12272024841ff2d87fd8e5bf62"
   },
   {
     "url": "golang/常用组件和技巧/04struct2map.html",
-    "revision": "140f3e60f0bb4e9283bfddecc8642a9c"
+    "revision": "c6fc98c8de4ce208948d8a7a7043e5f1"
   },
   {
     "url": "golang/常用组件和技巧/05viper_tutorial.html",
-    "revision": "9bbcbf15f92de771b5d823a117612608"
+    "revision": "ee47af54080a1bba22dd57a5842ff450"
   },
   {
     "url": "golang/常用组件和技巧/06go_nsq.html",
-    "revision": "4e66b408e99c173fc64bceb81838c504"
+    "revision": "bed97ccd3d157e0c0a74696a9b0707d1"
   },
   {
     "url": "golang/常用组件和技巧/07go_kafka.html",
-    "revision": "428d0ba3592b4fe6b47645b724315792"
+    "revision": "048d35d2a59a75a9a2f5eeb72ed6caf8"
   },
   {
     "url": "golang/常用组件和技巧/08go_etcd.html",
-    "revision": "6caa351112aad29ef52089e7d6b9529a"
+    "revision": "c637464a61482f35163ab1e20a67a010"
   },
   {
     "url": "golang/常用组件和技巧/09go_gopsutil.html",
-    "revision": "39a4a5ebfd3dcfdca065f9fb2f9d6b86"
+    "revision": "a175395c14b1b54fcd35529615e22b57"
   },
   {
     "url": "golang/常用组件和技巧/10gob_msgpack.html",
-    "revision": "50a9aac50be566f11fabc638d2dcb5ed"
+    "revision": "126f3f3d46fc29f9c951003fd11e346f"
   },
   {
     "url": "golang/常用组件和技巧/11go_influxdb.html",
-    "revision": "ff23e02624492583a8dab1e535616985"
+    "revision": "66b2033c447d8d68f7ffea1eb2e67c72"
   },
   {
     "url": "golang/常用组件和技巧/12go_elasticsearch.html",
-    "revision": "3c99a4fe7b2c51423830464043349c5a"
+    "revision": "678fe6d35f13e28dc1ac97d0001e4e4b"
   },
   {
     "url": "golang/常用组件和技巧/13go_logrus.html",
-    "revision": "8cc9d31b18c3a6b14fc7e913e7288403"
+    "revision": "a8b7f82c2debc328a4ef004c836cfea7"
   },
   {
     "url": "golang/常用组件和技巧/14performance_optimisation.html",
-    "revision": "398f578c9381980b02199017d78b7e4f"
+    "revision": "6049ad43b95bc58e2486093282545011"
   },
   {
     "url": "golang/常用组件和技巧/15makefile.html",
-    "revision": "94b322596e65cb5cb50f48121ac6708e"
+    "revision": "1bd2feaf33704910a4d26e6d6ea9fe54"
   },
   {
     "url": "golang/常用组件和技巧/16priority_in_go_select.html",
-    "revision": "fb6966fd5c4647bcbfc3c3a90d3fba7d"
+    "revision": "454ae5111c861a4335df96d93bf63401"
   },
   {
     "url": "golang/常用组件和技巧/17slice_tricks.html",
-    "revision": "7f77f992333be5f2d51b80647ee18429"
+    "revision": "1cbe0da26734b308317fa27453fc8f10"
   },
   {
     "url": "golang/常用组件和技巧/18struct_memory_layout.html",
-    "revision": "e2015e5641d50a9bfc9db1ef7126a300"
+    "revision": "e4ec67d67f46c2c9447fea059b12e0af"
   },
   {
     "url": "golang/引用/在 Go 中恰到好处的内存对齐.html",
-    "revision": "ec3ff3e259605f48afcb320daaa1e5a0"
+    "revision": "0000b8a4574d471e7a0395eeb5c2c070"
   },
   {
     "url": "golang/微服务相关/00summary.html",
-    "revision": "b90081fd00c3dda2cac47c40071303f7"
+    "revision": "2dcf5dfe1edff68f7543dd0b6c5287fc"
   },
   {
     "url": "golang/微服务相关/01RPC.html",
-    "revision": "89b800f28aa7c30b898f9b134cc781fb"
+    "revision": "e07541eb6e49aeb7cca4f40607fde083"
   },
   {
     "url": "golang/微服务相关/02protobuf.html",
-    "revision": "e363b86a943645ccd921bfbbda234bf3"
+    "revision": "e9c4d9444823c49dbeb064b606776249"
   },
   {
     "url": "golang/微服务相关/03protov.html",
-    "revision": "a92839c94fec5e814cf7a7e5bfae9864"
+    "revision": "dc69d6d7973e297be76fd47c704e3e59"
   },
   {
     "url": "golang/微服务相关/04grpc.html",
-    "revision": "6c5b105f84632915a2e017b2529d1421"
+    "revision": "c1f34fb36fef05d4d96e36f5b3e77bb0"
   },
   {
     "url": "golang/微服务相关/05consul.html",
-    "revision": "61ef7f7f92705f776c7fe984ea3a5b37"
+    "revision": "06ef5d22d166ef2f831c6fc559a18592"
   },
   {
     "url": "golang/微服务相关/06apollo.html",
-    "revision": "4062f44f83ad319db4f390aea9330966"
+    "revision": "ca680f14db01a2e1f6e35060d12f36f5"
   },
   {
     "url": "golang/数据库相关/00summary.html",
-    "revision": "78ec7d4ba66e5096103fa4799c227266"
+    "revision": "73c293caeb9a13670674d0d6e8bc37b6"
   },
   {
     "url": "golang/数据库相关/01go_mysql.html",
-    "revision": "0e9cdd306be470f72718d1b9e4830c07"
+    "revision": "ddfc31d4faedbd3cc6bbbfdf1b0162c3"
   },
   {
     "url": "golang/数据库相关/02go_sqlx.html",
-    "revision": "2e6939682bb3d63a6516ca0c7109276d"
+    "revision": "c66fd5d73c7f944a476c41e450e87991"
   },
   {
     "url": "golang/数据库相关/03go_redis.html",
-    "revision": "f66e7acda9236bae696ee78ad600c10f"
+    "revision": "e365ce5af1193c4011b596069c54f407"
   },
   {
     "url": "golang/数据库相关/04go_mongoDB.html",
-    "revision": "274874663f59507eee529e1a1c679d85"
+    "revision": "3276cb246a7cf6e6c121a90eef8bed2f"
   },
   {
     "url": "golang/消息队列/00summary.html",
-    "revision": "f8c91372b10f220c72ecbc876e653ddb"
+    "revision": "ae1e5e3fa73a6a51c27577178142b89d"
   },
   {
     "url": "guide/index.html",
-    "revision": "ce55d97e826c31607b247b8a74fa0fce"
+    "revision": "6117bd39cd7c15a4bcd11b094d6ed952"
   },
   {
     "url": "hero_white.png",
@@ -1176,6 +1176,10 @@ self.__precacheManifest = [
   {
     "url": "img/5.jpg",
     "revision": "c48683b7627396b02eb4a7df386431f5"
+  },
+  {
+    "url": "img/banner.jpg",
+    "revision": "f95701efdce110eac32cec9f1cb894dc"
   },
   {
     "url": "img/kbjw2.jpg",
@@ -1199,23 +1203,23 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "22b607656863e39b2f699f49157d7b3b"
+    "revision": "006749ddb6149089ae97668b27d94c3e"
   },
   {
     "url": "java/index.html",
-    "revision": "3b8e3aad3716d11514989d58bdd6f6cd"
+    "revision": "452e5c748902cb2eb432602e2cc772a9"
   },
   {
     "url": "java/java/javase.html",
-    "revision": "6239056d4f00556212757661a49ecb81"
+    "revision": "4f2a514ae69f5f9515be59421347f6aa"
   },
   {
     "url": "java/java/java基础.html",
-    "revision": "f4ef3f40dcbc10521835c007e33571fb"
+    "revision": "f3e160d737951edd40f3cef6e66f9d2e"
   },
   {
     "url": "java/java高级/javaee.html",
-    "revision": "2b063f75145eae7d6c3683ad43db59dc"
+    "revision": "f7755145dd58c98d35359c4e390c7547"
   },
   {
     "url": "js/custom.js",
@@ -1223,103 +1227,103 @@ self.__precacheManifest = [
   },
   {
     "url": "tag/index.html",
-    "revision": "eed15e59d68c7c8da2a48ddba9919c47"
+    "revision": "c631ca9249369c4c1328dc4c89f73383"
   },
   {
     "url": "tags/fmt/index.html",
-    "revision": "36c431c4ff80d0433ec78d63988e3b01"
+    "revision": "c3473ed517e3759b8f2c8352e012155e"
   },
   {
     "url": "tags/golang/index.html",
-    "revision": "eba7675565031e2b38de2d5509cb6e26"
+    "revision": "cce47ac799c8bcf4b375f059e988e9d6"
   },
   {
     "url": "tags/golang/page/10/index.html",
-    "revision": "78bdfc04dc98ec8b15c0a92602ee604f"
+    "revision": "54fbfd0f9deab2e0284aa0ed18eaee06"
   },
   {
     "url": "tags/golang/page/2/index.html",
-    "revision": "cfb2fe54337fe12aa2e99294f6c09c3a"
+    "revision": "05fa56dfdcf3faefbf38373e3dae9d3d"
   },
   {
     "url": "tags/golang/page/3/index.html",
-    "revision": "0a7f0480c8e56b386562ce5052b97b7c"
+    "revision": "6e2dec7d1b05900ca4419e2318122e8c"
   },
   {
     "url": "tags/golang/page/4/index.html",
-    "revision": "6c4cd88ce414f7e67afbda900dfd17da"
+    "revision": "836ea495715f8ffbf97300c5452dd21a"
   },
   {
     "url": "tags/golang/page/5/index.html",
-    "revision": "ac467ac4294ccc10bb1c4395e3d50e5b"
+    "revision": "6e2fc1ea8ced6eca530a90d8d7397df0"
   },
   {
     "url": "tags/golang/page/6/index.html",
-    "revision": "d641715f8a1e7e090259064cf763dc74"
+    "revision": "ea4eb9cc1af90351b01a9bab546e0144"
   },
   {
     "url": "tags/golang/page/7/index.html",
-    "revision": "f3beaaa64137596e303d1e2e6ec20689"
+    "revision": "7e9202a57e81badd4e01c9fd68ada40c"
   },
   {
     "url": "tags/golang/page/8/index.html",
-    "revision": "d7e59aa39b8cb330697b01f06d468098"
+    "revision": "a31a8ed42231b06969bf560d99bd94b5"
   },
   {
     "url": "tags/golang/page/9/index.html",
-    "revision": "fcbe49998948b4ae6b46b37ab4639f4a"
+    "revision": "223b646c69c26a9a29e0e8e90c511b41"
   },
   {
     "url": "tags/JavaSE/index.html",
-    "revision": "5b02f9636faab434c0d3f4eadf091573"
+    "revision": "5020ae860695a6085a666d9620697493"
   },
   {
     "url": "tags/Java基础/index.html",
-    "revision": "8b391688f35a56b9d875322427dfdb6b"
+    "revision": "212dfb83f6d029dfea1f20919967140c"
   },
   {
     "url": "tags/react/index.html",
-    "revision": "ee54c723bb0041a18535237fe565aa34"
+    "revision": "2cfd09124c6ca09bc4d42e3c0670e228"
   },
   {
     "url": "tags/react/page/2/index.html",
-    "revision": "0863b20c4101ca62907266c3ac006819"
+    "revision": "de178bcc363621220879572e51daedb0"
   },
   {
     "url": "tags/Spring/index.html",
-    "revision": "86e2921391414a90d01e07634e769762"
+    "revision": "650eab7cdcbbc0ea8f908cb80123bdde"
   },
   {
     "url": "tags/SpringBoot/index.html",
-    "revision": "6f03ec1c85e00c50af778a70b3f713b4"
+    "revision": "d830de36f861dfd236d40484bf134f70"
   },
   {
     "url": "tags/time/index.html",
-    "revision": "78dc24ed8652237f73cd8b50045b5c6a"
+    "revision": "1e3093ab0234823f65316e3f8e8f3be4"
   },
   {
     "url": "tags/vue/index.html",
-    "revision": "7745a4e73d69a84768962753a9ed227d"
+    "revision": "1bdab4df9b702f9cb9003a67e8072d69"
   },
   {
     "url": "tags/webpack/index.html",
-    "revision": "ad85eaaca26516bfabc3e93a61ce4d46"
+    "revision": "547c305df24a4d798dfbee70fc67fb53"
   },
   {
     "url": "tags/前端/index.html",
-    "revision": "a196ad812b3a6a89e910613615508657"
+    "revision": "d6fede3e4f2e03096d314e3434b2629b"
   },
   {
     "url": "tags/零基础/index.html",
-    "revision": "2c898b2de5d5bc44ae6810ac8095c2cc"
+    "revision": "0ee0b7b3c60e816f6d25a5958aefbe76"
   },
   {
     "url": "tags/面向对象/index.html",
-    "revision": "dccbc4041d74d25a3519fd29ff15df66"
+    "revision": "15c80470aa1afdc866ce7fee94c804eb"
   },
   {
     "url": "timeline/index.html",
-    "revision": "09e68ded6ca299bdc6899072226a6952"
+    "revision": "0f6d085a98791321ac5051eef2c94a59"
   },
   {
     "url": "view.png",
