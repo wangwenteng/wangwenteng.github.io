@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Go语言基础之包 | 腾哥的学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/custom.js"></script>
+    <meta name="description" content="~~~学习过程中笔记心得整理~~~">
+    <meta name="keywords" content="腾哥的学习笔记">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="robots" content="all">
+    <meta name="author" content="腾哥">
+    
+    <link rel="preload" href="/assets/css/0.styles.5e2bd223.css" as="style"><link rel="preload" href="/assets/js/app.c9a01fb9.js" as="script"><link rel="preload" href="/assets/js/4.14868eff.js" as="script"><link rel="preload" href="/assets/js/1.4ea549be.js" as="script"><link rel="preload" href="/assets/js/73.2eab8618.js" as="script"><link rel="preload" href="/assets/js/11.fc56e899.js" as="script"><link rel="prefetch" href="/assets/js/10.1513ff4d.js"><link rel="prefetch" href="/assets/js/100.dc3ff992.js"><link rel="prefetch" href="/assets/js/101.b453b687.js"><link rel="prefetch" href="/assets/js/102.77729282.js"><link rel="prefetch" href="/assets/js/103.6ada4c9e.js"><link rel="prefetch" href="/assets/js/104.dd54b1b6.js"><link rel="prefetch" href="/assets/js/105.8deb61d2.js"><link rel="prefetch" href="/assets/js/106.e547483c.js"><link rel="prefetch" href="/assets/js/107.b7bd9048.js"><link rel="prefetch" href="/assets/js/108.ad6922d7.js"><link rel="prefetch" href="/assets/js/109.f2de2e58.js"><link rel="prefetch" href="/assets/js/110.c4d6a595.js"><link rel="prefetch" href="/assets/js/111.3776e483.js"><link rel="prefetch" href="/assets/js/112.04790f7f.js"><link rel="prefetch" href="/assets/js/113.3f94fda3.js"><link rel="prefetch" href="/assets/js/114.6f40204b.js"><link rel="prefetch" href="/assets/js/115.4ce1d870.js"><link rel="prefetch" href="/assets/js/116.1d742884.js"><link rel="prefetch" href="/assets/js/117.66de33c6.js"><link rel="prefetch" href="/assets/js/118.d55e3bbf.js"><link rel="prefetch" href="/assets/js/119.c104d1b3.js"><link rel="prefetch" href="/assets/js/12.c736dbaf.js"><link rel="prefetch" href="/assets/js/120.bd1c9f96.js"><link rel="prefetch" href="/assets/js/121.31b4fcc1.js"><link rel="prefetch" href="/assets/js/122.0f674a45.js"><link rel="prefetch" href="/assets/js/123.3e0b7a44.js"><link rel="prefetch" href="/assets/js/124.69da5fc4.js"><link rel="prefetch" href="/assets/js/125.a7d45e1d.js"><link rel="prefetch" href="/assets/js/126.e0c0d49d.js"><link rel="prefetch" href="/assets/js/127.d6eec92f.js"><link rel="prefetch" href="/assets/js/128.7b8c4d70.js"><link rel="prefetch" href="/assets/js/129.e24247ec.js"><link rel="prefetch" href="/assets/js/13.3f3c108a.js"><link rel="prefetch" href="/assets/js/130.621fadc7.js"><link rel="prefetch" href="/assets/js/131.4d861aea.js"><link rel="prefetch" href="/assets/js/132.0caa953d.js"><link rel="prefetch" href="/assets/js/14.aadd47f4.js"><link rel="prefetch" href="/assets/js/15.7e24f77a.js"><link rel="prefetch" href="/assets/js/16.0855e17e.js"><link rel="prefetch" href="/assets/js/17.c0624ff2.js"><link rel="prefetch" href="/assets/js/18.7d50d6e2.js"><link rel="prefetch" href="/assets/js/19.64d33de3.js"><link rel="prefetch" href="/assets/js/20.8aa89424.js"><link rel="prefetch" href="/assets/js/21.97683091.js"><link rel="prefetch" href="/assets/js/22.46853da1.js"><link rel="prefetch" href="/assets/js/23.5db474a4.js"><link rel="prefetch" href="/assets/js/24.0415f8e9.js"><link rel="prefetch" href="/assets/js/25.2c5e1797.js"><link rel="prefetch" href="/assets/js/26.8ac1abcc.js"><link rel="prefetch" href="/assets/js/27.7f52c10c.js"><link rel="prefetch" href="/assets/js/28.88f1a079.js"><link rel="prefetch" href="/assets/js/29.85872ea6.js"><link rel="prefetch" href="/assets/js/30.505d4e68.js"><link rel="prefetch" href="/assets/js/31.ed78701d.js"><link rel="prefetch" href="/assets/js/32.86951999.js"><link rel="prefetch" href="/assets/js/33.950b8a0d.js"><link rel="prefetch" href="/assets/js/34.97a50ad4.js"><link rel="prefetch" href="/assets/js/35.e3f07e81.js"><link rel="prefetch" href="/assets/js/36.040707b8.js"><link rel="prefetch" href="/assets/js/37.ba5a93c3.js"><link rel="prefetch" href="/assets/js/38.38bd63b4.js"><link rel="prefetch" href="/assets/js/39.72a455ce.js"><link rel="prefetch" href="/assets/js/40.375dd09e.js"><link rel="prefetch" href="/assets/js/41.d7ea18e6.js"><link rel="prefetch" href="/assets/js/42.95c27270.js"><link rel="prefetch" href="/assets/js/43.74666cd1.js"><link rel="prefetch" href="/assets/js/44.b60d308d.js"><link rel="prefetch" href="/assets/js/45.a3612fd2.js"><link rel="prefetch" href="/assets/js/46.08e72649.js"><link rel="prefetch" href="/assets/js/47.4a40ed80.js"><link rel="prefetch" href="/assets/js/48.33272b76.js"><link rel="prefetch" href="/assets/js/49.25834461.js"><link rel="prefetch" href="/assets/js/5.b89c5eff.js"><link rel="prefetch" href="/assets/js/50.77af3b0d.js"><link rel="prefetch" href="/assets/js/51.5f37ba36.js"><link rel="prefetch" href="/assets/js/52.d78011b3.js"><link rel="prefetch" href="/assets/js/53.d79586c6.js"><link rel="prefetch" href="/assets/js/54.f59c7de2.js"><link rel="prefetch" href="/assets/js/55.cc1c148e.js"><link rel="prefetch" href="/assets/js/56.b671ba6d.js"><link rel="prefetch" href="/assets/js/57.13952422.js"><link rel="prefetch" href="/assets/js/58.4294c555.js"><link rel="prefetch" href="/assets/js/59.e1a4167c.js"><link rel="prefetch" href="/assets/js/6.3e150692.js"><link rel="prefetch" href="/assets/js/60.c8bb4f84.js"><link rel="prefetch" href="/assets/js/61.92451b8e.js"><link rel="prefetch" href="/assets/js/62.866d5f55.js"><link rel="prefetch" href="/assets/js/63.32030866.js"><link rel="prefetch" href="/assets/js/64.3466074c.js"><link rel="prefetch" href="/assets/js/65.fafd3f67.js"><link rel="prefetch" href="/assets/js/66.e1e9b2a9.js"><link rel="prefetch" href="/assets/js/67.30b3e7e8.js"><link rel="prefetch" href="/assets/js/68.74478be4.js"><link rel="prefetch" href="/assets/js/69.991f0eb6.js"><link rel="prefetch" href="/assets/js/7.5eb77440.js"><link rel="prefetch" href="/assets/js/70.8027b7bd.js"><link rel="prefetch" href="/assets/js/71.a70177df.js"><link rel="prefetch" href="/assets/js/72.e70af07b.js"><link rel="prefetch" href="/assets/js/74.525ebbe6.js"><link rel="prefetch" href="/assets/js/75.c5e4ef96.js"><link rel="prefetch" href="/assets/js/76.c7620cac.js"><link rel="prefetch" href="/assets/js/77.5a7baee2.js"><link rel="prefetch" href="/assets/js/78.2f1f4ce8.js"><link rel="prefetch" href="/assets/js/79.7e14a51b.js"><link rel="prefetch" href="/assets/js/8.3c5591af.js"><link rel="prefetch" href="/assets/js/80.e658b8a4.js"><link rel="prefetch" href="/assets/js/81.1398de65.js"><link rel="prefetch" href="/assets/js/82.83435632.js"><link rel="prefetch" href="/assets/js/83.fb66ad20.js"><link rel="prefetch" href="/assets/js/84.9bba2649.js"><link rel="prefetch" href="/assets/js/85.f2095662.js"><link rel="prefetch" href="/assets/js/86.9306308e.js"><link rel="prefetch" href="/assets/js/87.8762f862.js"><link rel="prefetch" href="/assets/js/88.072cc092.js"><link rel="prefetch" href="/assets/js/89.e2fba221.js"><link rel="prefetch" href="/assets/js/9.e6b7ce22.js"><link rel="prefetch" href="/assets/js/90.bc00ca05.js"><link rel="prefetch" href="/assets/js/91.1bbdfb44.js"><link rel="prefetch" href="/assets/js/92.9b094ea0.js"><link rel="prefetch" href="/assets/js/93.702c1f46.js"><link rel="prefetch" href="/assets/js/94.396de713.js"><link rel="prefetch" href="/assets/js/95.bb69757f.js"><link rel="prefetch" href="/assets/js/96.529edea0.js"><link rel="prefetch" href="/assets/js/97.a749d9fc.js"><link rel="prefetch" href="/assets/js/98.7fa53d3f.js"><link rel="prefetch" href="/assets/js/99.9965984c.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.b584dfe5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5e2bd223.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-4698c43e><div data-v-4698c43e><div id="loader-wrapper" class="loading-wrapper" data-v-1c4f0192 data-v-4698c43e data-v-4698c43e><div class="loader-main" data-v-1c4f0192><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-6cbeab0a data-v-4698c43e data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>腾哥的学习笔记</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>腾哥</span>
+            
+          <span data-v-6cbeab0a>2022 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-4698c43e><header class="navbar" data-v-4698c43e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">腾哥的学习笔记</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-sticky"></i>
+      JAVA
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/java/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      GoLang
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言介绍/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  介绍、搭建
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言基础/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言常用标准库/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  标准库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/单元测试/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/golang/数据库相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/Web开发相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  Web开发
+</a></li><li class="dropdown-item"><!----> <a href="/golang/微服务相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/golang/常用组件和技巧/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  常用组件
+</a></li><li class="dropdown-item"><!----> <a href="/golang/GORM教程/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  GORM
+</a></li><li class="dropdown-item"><!----> <a href="/golang/消息队列/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/react/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>git</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li><li class="dropdown-item"><h4>docker</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/golang/about_golang.html" class="nav-link"><i class="iconfont undefined"></i>
+  Go语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4698c43e></div> <aside class="sidebar" data-v-4698c43e><div class="personal-info-wrapper" data-v-6c8ffc9c><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-6c8ffc9c> <h3 class="name" data-v-6c8ffc9c>
+    腾哥
+  </h3> <div class="num" data-v-6c8ffc9c><div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>117</h3> <h6 data-v-6c8ffc9c>文章</h6></div> <div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>13</h3> <h6 data-v-6c8ffc9c>标签</h6></div></div> <hr data-v-6c8ffc9c></div> <nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-sticky"></i>
+      JAVA
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/java/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      GoLang
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言介绍/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  介绍、搭建
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言基础/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言常用标准库/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  标准库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/单元测试/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/golang/数据库相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/Web开发相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  Web开发
+</a></li><li class="dropdown-item"><!----> <a href="/golang/微服务相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/golang/常用组件和技巧/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  常用组件
+</a></li><li class="dropdown-item"><!----> <a href="/golang/GORM教程/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  GORM
+</a></li><li class="dropdown-item"><!----> <a href="/golang/消息队列/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/react/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>git</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li><li class="dropdown-item"><h4>docker</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/golang/about_golang.html" class="nav-link"><i class="iconfont undefined"></i>
+  Go语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>go语言基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go语言基础/00summary.html" class="sidebar-link">go语言基础</a></li><li><a href="/golang/go语言基础/01_var_and_const.html" class="sidebar-link">Go语言基础之变量和常量</a></li><li><a href="/golang/go语言基础/02_datatype.html" class="sidebar-link">Go语言基础之基本数据类型</a></li><li><a href="/golang/go语言基础/02_go_command.html" class="sidebar-link">Go语言基础之命令</a></li><li><a href="/golang/go语言基础/03_operators.html" class="sidebar-link">Go语言基础之运算符</a></li><li><a href="/golang/go语言基础/03_underline.html" class="sidebar-link">Go语言基础之下划线</a></li><li><a href="/golang/go语言基础/04_Process_control.html" class="sidebar-link">Go语言基础之流程控制</a></li><li><a href="/golang/go语言基础/05_array.html" class="sidebar-link">Go语言基础之数组</a></li><li><a href="/golang/go语言基础/06_slice.html" class="sidebar-link">Go语言基础之切片</a></li><li><a href="/golang/go语言基础/07_pointer.html" class="sidebar-link">Go语言基础之指针</a></li><li><a href="/golang/go语言基础/08_map.html" class="sidebar-link">Go语言基础之map</a></li><li><a href="/golang/go语言基础/09_function.html" class="sidebar-link">Go语言基础之函数</a></li><li><a href="/golang/go语言基础/10_struct.html" class="sidebar-link">Go语言基础之结构体</a></li><li><a href="/golang/go语言基础/11_package.html" class="active sidebar-link">Go语言基础之包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#包-package" class="sidebar-link">包（package）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#包介绍" class="sidebar-link">包介绍</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#定义包" class="sidebar-link">定义包</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#标识符可见性" class="sidebar-link">标识符可见性</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#包的引入" class="sidebar-link">包的引入</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#init初始化函数" class="sidebar-link">init初始化函数</a></li></ul></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#go-module" class="sidebar-link">go module</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#go-module介绍" class="sidebar-link">go module介绍</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#使用go-module引入包" class="sidebar-link">使用go module引入包</a></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#使用go-module发布包" class="sidebar-link">使用go module发布包</a></li></ul></li><li class="sidebar-sub-header"><a href="/golang/go语言基础/11_package.html#练习题" class="sidebar-link">练习题</a></li></ul></li><li><a href="/golang/go语言基础/12_interface.html" class="sidebar-link">Go语言基础之接口</a></li><li><a href="/golang/go语言基础/13_errors.html" class="sidebar-link">Error接口和错误处理</a></li><li><a href="/golang/go语言基础/13_reflect.html" class="sidebar-link">Go语言基础之反射</a></li><li><a href="/golang/go语言基础/14_concurrence.html" class="sidebar-link">Go语言基础之并发</a></li><li><a href="/golang/go语言基础/15_error-in-goroutine.html" class="sidebar-link">处理并发错误</a></li><li><a href="/golang/go语言基础/15_socket.html" class="sidebar-link">Go语言基础之网络编程</a></li><li><a href="/golang/go语言基础/16_unit-test.html" class="sidebar-link">Go语言基础之单元测试</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-6cbeab0a data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>Go语言基础之包</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>腾哥</span>
+            
+          <span data-v-6cbeab0a>2022 - </span>
+          2022
+        </a></span></div></div> <div data-v-4698c43e><main class="page"><!----> <div class="page-title" style="display:none;"><h1>Go语言基础之包</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>腾哥</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2022-06-22 10:16:44</span></i> <!----> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      golang
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block danger"><p class="custom-block-title">说明</p> <p>在工程化的Go语言开发项目中，Go语言的源码复用是建立在包（package）基础之上的。本文介绍了Go语言中如何定义包、如何导出包的内容及如何导入其他包。</p> <h1 id="包与依赖管理"><a href="#包与依赖管理" class="header-anchor">#</a> 包与依赖管理</h1> <p><strong>本章学习目标</strong></p> <ul><li>掌握包的定义和使用</li> <li>掌握init初始化函数的使用</li> <li>掌握依赖管理工具go module的使用</li></ul> <p>在工程化的Go语言开发项目中，Go语言的源码复用是建立在包（package）基础之上的。本文介绍了Go语言中如何定义包、如何导出包的内容及如何引入其他包。同时也将介绍如何在项目中使用go module管理依赖。</p></div> <h2 id="包-package"><a href="#包-package" class="header-anchor">#</a> 包（package）</h2> <h3 id="包介绍"><a href="#包介绍" class="header-anchor">#</a> 包介绍</h3> <p>Go语言中支持模块化的开发理念，在Go语言中使用<code>包（package）</code>来支持代码模块化和代码复用。一个包是由一个或多个Go源码文件（.go结尾的文件）组成，是一种高级的代码复用方案，Go语言为我们提供了很多内置包，如<code>fmt</code>、<code>os</code>、<code>io</code>等。</p> <p>例如，在之前的章节中我们频繁使用了<code>fmt</code>这个内置包。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello world!&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>上面短短的几行代码就涉及到了如何定义包以及如何引入其它包两个内容，接下来我们依次介绍一下它们。</p> <h3 id="定义包"><a href="#定义包" class="header-anchor">#</a> 定义包</h3> <p>我们可以根据自己的需要创建自定义包。一个包可以简单理解为一个存放<code>.go</code>文件的文件夹。该文件夹下面的所有<code>.go</code>文件都要在非注释的第一行添加如下声明，声明该文件归属的包。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> packagename
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>其中：</p> <ul><li>package：声明包的关键字</li> <li>packagename：包名，可以不与文件夹的名称一致，不能包含 <code>-</code> 符号，最好与其实现的功能相对应。</li></ul> <p>另外需要注意一个文件夹下面直接包含的文件只能归属一个包，同一个包的文件不能在多个文件夹下。包名为<code>main</code>的包是应用程序的入口包，这种包编译后会得到一个可执行文件，而编译不包含<code>main</code>包的源代码则不会得到可执行文件。</p> <h3 id="标识符可见性"><a href="#标识符可见性" class="header-anchor">#</a> 标识符可见性</h3> <p>在同一个包内部声明的标识符都位于同一个命名空间下，在不同的包内部声明的标识符就属于不同的命名空间。想要在包的外部使用包内部的标识符就需要添加包名前缀，例如<code>fmt.Println(&quot;Hello world!&quot;</code>·，就是指调用<code>fmt</code>包中的<code>Println</code>函数。</p> <p>如果想让一个包中的标识符（如变量、常量、类型、函数等）能被外部的包使用，那么标识符必须是对外可见的（public）。在Go语言中是通过标识符的首字母大/小写来控制标识符的对外可见（public）/不可见（private）的。在一个包内部只有首字母大写的标识符才是对外可见的。</p> <p>例如我们定义一个名为<code>demo</code>的包，在其中定义了若干标识符。在另外一个包中并不是所有的标识符都能通过<code>demo.</code>前缀访问到，因为只有那些首字母是大写的标识符才是对外可见的。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> demo
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token comment">// 包级别标识符的可见性</span>
+
+<span class="token comment">// num 定义一个全局整型变量</span>
+<span class="token comment">// 首字母小写，对外不可见(只能在当前包内使用)</span>
+<span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">100</span>
+
+<span class="token comment">// Mode 定义一个常量</span>
+<span class="token comment">// 首字母大写，对外可见(可在其它包中使用)</span>
+<span class="token keyword">const</span> Mode <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment">// person 定义一个代表人的结构体</span>
+<span class="token comment">// 首字母小写，对外不可见(只能在当前包内使用)</span>
+<span class="token keyword">type</span> person <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	name <span class="token builtin">string</span>
+	Age  <span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Add 返回两个整数和的函数</span>
+<span class="token comment">// 首字母大写，对外可见(可在其它包中使用)</span>
+<span class="token keyword">func</span> <span class="token function">Add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> x <span class="token operator">+</span> y
+<span class="token punctuation">}</span>
+
+<span class="token comment">// sayHi 打招呼的函数</span>
+<span class="token comment">// 首字母小写，对外不可见(只能在当前包内使用)</span>
+<span class="token keyword">func</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> myName <span class="token operator">=</span> <span class="token string">&quot;七米&quot;</span> <span class="token comment">// 函数局部变量，只能在当前函数内使用</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>myName<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>同样的规则也适用于结构体，结构体中可导出字段的字段名称必须首字母大写。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">type</span> Student <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	Name  <span class="token builtin">string</span> <span class="token comment">// 可在包外访问的方法</span>
+	class <span class="token builtin">string</span> <span class="token comment">// 仅限包内访问的字段</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="包的引入"><a href="#包的引入" class="header-anchor">#</a> 包的引入</h3> <p>要在当前包中使用另外一个包的内容就需要使用<code>import</code>关键字引入这个包，并且import语句通常放在文件的开头，<code>package</code>声明语句的下方。完整的引入声明语句格式如下:</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">import</span> importname <span class="token string">&quot;path/to/package&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>其中：</p> <ul><li>importname：引入的包名，通常都省略。默认值为引入包的包名。</li> <li>path/to/package：引入包的路径名称，必须使用双引号包裹起来。</li> <li>Go语言中禁止循环导入包。</li></ul> <p>一个Go源码文件中可以同时引入多个包，例如：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;net/http&quot;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;os&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>当然可以使用批量引入的方式。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">&quot;fmt&quot;</span>
+  	<span class="token string">&quot;net/http&quot;</span>
+    <span class="token string">&quot;os&quot;</span>
+<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>当引入的多个包中存在相同的包名或者想自行为某个引入的包设置一个新包名时，都需要通过<code>importname</code>指定一个在当前文件中使用的新包名。例如，在引入<code>fmt</code>包时为其指定一个新包名<code>f</code>。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">import</span> f <span class="token string">&quot;fmt&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这样在当前这个文件中就可以通过使用<code>f</code>来调用<code>fmt</code>包中的函数了。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>f<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello world!&quot;</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果引入一个包的时候为其设置了一个特殊<code>_</code>作为包名，那么这个包的引入方式就称为匿名引入。一个包被匿名引入的目的主要是为了加载这个包，从而使得这个包中的资源得以初始化。 被匿名引入的包中的<code>init</code>函数将被执行并且仅执行一遍。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">import</span> <span class="token boolean">_</span> <span class="token string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>匿名引入的包与其他方式导入的包一样都会被编译到可执行文件中。</p> <p>需要注意的是，Go语言中不允许引入包却不在代码中使用这个包的内容，如果引入了未使用的包则会触发编译错误。</p> <h3 id="init初始化函数"><a href="#init初始化函数" class="header-anchor">#</a> init初始化函数</h3> <p>在每一个Go源文件中，都可以定义任意个如下格式的特殊函数：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>这种特殊的函数不接收任何参数也没有任何返回值，我们也不能在代码中主动调用它。当程序启动的时候，init函数会按照它们声明的顺序自动执行。</p> <p>一个包的初始化过程是按照代码中引入的顺序来进行的，所有在该包中声明的<code>init</code>函数都将被串行调用并且仅调用执行一次。每一个包初始化的时候都是先执行依赖的包中声明的<code>init</code>函数再执行当前包中声明的<code>init</code>函数。确保在程序的<code>main</code>函数开始执行时所有的依赖包都已初始化完成。<img src="https://www.liwenzhou.com/images/Go/package/package01.png" alt="包初始化函数执行顺序示意图"></p> <p>每一个包的初始化是先从初始化包级别变量开始的。例如从下面的示例中我们就可以看出包级别变量的初始化会先于<code>init</code>初始化函数。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">var</span> x <span class="token builtin">int8</span> <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token keyword">const</span> pi <span class="token operator">=</span> <span class="token number">3.14</span>
+
+<span class="token keyword">func</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;x:&quot;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;pi:&quot;</span><span class="token punctuation">,</span> pi<span class="token punctuation">)</span>
+	<span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World!&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;你好，世界！&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>输出结果：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>x: <span class="token number">10</span>
+pi: <span class="token number">3.14</span>
+Hello World<span class="token operator">!</span>
+你好，世界！
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>在上面的代码中，我们了解了Go语言中包的定义及包的初始化过程，这让我们能够在开发时按照自己的需要定义包。同时我们还学到了如何在我们的代码中引入其它的包，不过在本小节的所有示例中我们都是引入Go内置的包。现代编程语言大多都允许开发者对外发布包/库，也支持开发者在自己的代码中引入第三方库。这样的设计能够让广大开发者一起参与到语言的生态环境建设当中，把生态建设的更加完善。</p> <h2 id="go-module"><a href="#go-module" class="header-anchor">#</a> go module</h2> <p>在Go语言的早期版本中，我们编写Go项目代码时所依赖的所有第三方包都需要保存在GOPATH这个目录下面。这样的依赖管理方式存在一个致命的缺陷，那就是不支持版本管理，同一个依赖包只能存在一个版本的代码。可是我们本地的多个项目完全可能分别依赖同一个第三方包的不同版本。</p> <h3 id="go-module介绍"><a href="#go-module介绍" class="header-anchor">#</a> go module介绍</h3> <p>Go module 是 Go1.11 版本发布的依赖管理方案，从 Go1.14 版本开始推荐在生产环境使用，于Go1.16版本默认开启。Go module 提供了以下命令供我们使用：</p> <p>go module相关命令</p> <table><thead><tr><th style="text-align:center;">命令</th> <th style="text-align:center;">介绍</th></tr></thead> <tbody><tr><td style="text-align:center;">go mod init</td> <td style="text-align:center;">初始化项目依赖，生成go.mod文件</td></tr> <tr><td style="text-align:center;">go mod download</td> <td style="text-align:center;">根据go.mod文件下载依赖</td></tr> <tr><td style="text-align:center;">go mod tidy</td> <td style="text-align:center;">比对项目文件中引入的依赖与go.mod进行比对</td></tr> <tr><td style="text-align:center;">go mod graph</td> <td style="text-align:center;">输出依赖关系图</td></tr> <tr><td style="text-align:center;">go mod edit</td> <td style="text-align:center;">编辑go.mod文件</td></tr> <tr><td style="text-align:center;">go mod vendor</td> <td style="text-align:center;">将项目的所有依赖导出至vendor目录</td></tr> <tr><td style="text-align:center;">go mod verify</td> <td style="text-align:center;">检验一个依赖包是否被篡改过</td></tr> <tr><td style="text-align:center;">go mod why</td> <td style="text-align:center;">解释为什么需要某个依赖</td></tr></tbody></table> <p>Go语言在 go module 的过渡阶段提供了 <code>GO111MODULE</code> 这个环境变量来作为是否启用 go module 功能的开关，考虑到 Go1.16 之后 go module 已经默认开启，所以本书不再介绍该配置，对于刚接触Go语言的读者而言完全没有必要了解这个历史包袱。</p> <p><strong>GOPROXY</strong></p> <p>这个环境变量主要是用于设置 Go 模块代理（Go module proxy），其作用是用于使 Go 在后续拉取模块版本时能够脱离传统的 VCS 方式，直接通过镜像站点来快速拉取。</p> <p>GOPROXY 的默认值是：<code>https://proxy.golang.org,direct</code>，由于某些原因国内无法正常访问该地址，所以我们通常需要配置一个可访问的地址。目前社区使用比较多的有两个<code>https://goproxy.cn</code>和<code>https://goproxy.io</code>，当然如果你的公司有提供GOPROXY地址那么就直接使用。设置GOPAROXY的命令如下：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>go <span class="token function">env</span> -w <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>GOPROXY 允许设置多个代理地址，多个地址之间需使用英文逗号 “,” 分隔。最后的 “direct” 是一个特殊指示符，用于指示 Go 回源到源地址去抓取（比如 GitHub 等）。当配置有多个代理地址时，如果第一个代理地址返回 404 或 410 错误时，Go 会自动尝试下一个代理地址，当遇见 “direct” 时触发回源，也就是回到源地址去抓取。</p> <p><strong>GOPRIVATE</strong></p> <p>设置了GOPROXY 之后，go 命令就会从配置的代理地址拉取和校验依赖包。当我们在项目中引入了非公开的包（公司内部git仓库或 github 私有仓库等），此时便无法正常从代理拉取到这些非公开的依赖包，这个时候就需要配置 GOPRIVATE 环境变量。GOPRIVATE用来告诉 go 命令哪些仓库属于私有仓库，不必通过代理服务器拉取和校验。</p> <p>GOPRIVATE 的值也可以设置多个，多个地址之间使用英文逗号 “,” 分隔。我们通常会把自己公司内部的代码仓库设置到 GOPRIVATE 中，例如：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>$ go <span class="token function">env</span> -w <span class="token assign-left variable">GOPRIVATE</span><span class="token operator">=</span><span class="token string">&quot;git.mycompany.com&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这样在拉取以<code>git.mycompany.com</code>为路径前缀的依赖包时就能正常拉取了。</p> <p>此外，如果公司内部自建了 GOPROXY 服务，那么我们可以通过设置 <code>GONOPROXY=none</code>，允许通内部代理拉取私有仓库的包。</p> <h3 id="使用go-module引入包"><a href="#使用go-module引入包" class="header-anchor">#</a> 使用go module引入包</h3> <p>接下来我们将通过一个示例来演示如何在开发项目时使用 go module 拉取和管理项目依赖。</p> <p><strong>初始化项目</strong> 我们在本地新建一个名为<code>holiday</code>项目，按如下方式创建一个名为<code>holiday</code>的文件夹并切换到该目录下：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>$ <span class="token function">mkdir</span> holiday
+$ <span class="token builtin class-name">cd</span> holiday
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>目前我们位于<code>holiday</code>文件夹下，接下来执行下面的命令初始化项目。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>$ go mod init holiday
+go: creating new go.mod: module holiday
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>该命令会自动在项目目录下创建一个<code>go.mod</code>文件，其内容如下。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>其中：</p> <ul><li>module holiday：定义当前项目的导入路径</li> <li>go 1.16：标识当前项目使用的 Go 版本</li></ul> <p><code>go.mod</code>文件会记录项目使用的第三方依赖包信息，包括包名和版本，由于我们的<code>holiday</code>项目目前还没有使用到第三方依赖包，所以<code>go.mod</code>文件暂时还没有记录任何依赖包信息，只有当前项目的一些信息。</p> <p>接下来，我们在项目目录下新建一个<code>main.go</code>文件，其内容如下：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token comment">// holiday/main.go</span>
+
+<span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;现在是假期时间...&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>然后，我们的<code>holiday</code>项目现在需要引入一个第三方包<code>github.com/q1mi/hello</code>来实现一些必要的功能。类似这样的场景在我们的日常开发中是很常见的。我们需要先将依赖包下载到本地同时在<code>go.mod</code>中记录依赖信息，然后才能在我们的代码中引入并使用这个包。下载依赖包主要有两种方法。</p> <p>第一种方法是在项目目录下执行<code>go get</code>命令手动下载依赖的包：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holiday $ go get -u github.com/q1mi/hello
+go get: added github.com/q1mi/hello v0.1.1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>这样默认会下载最新的发布版本，你也可以指定想要下载指定的版本号的。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holiday $ go get -u github.com/q1mi/hello@v0.1.0
+go: downloading github.com/q1mi/hello v0.1.0
+go get: downgraded github.com/q1mi/hello v0.1.1 <span class="token operator">=</span><span class="token operator">&gt;</span> v0.1.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>如果依赖包没有发布任何版本则会拉取最新的提交，最终<code>go.mod</code>中的依赖信息会变成类似下面这种由默认v0.0.0的版本号和最新一次commit的时间和hash组成的版本格式：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello v0<span class="token punctuation">.</span><span class="token number">0.0</span><span class="token operator">-</span><span class="token number">20210218074646</span><span class="token operator">-</span>139b0bcd549d
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果想指定下载某个commit对应的代码，可以直接指定commit hash，不过没有必要写出完整的commit hash，一般前7位即可。例如：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holiday $ go get github.com/q1mi/hello@2ccfadd
+go: downloading github.com/q1mi/hello v0.1.2-0.20210219092711-2ccfaddad6a3
+go get: added github.com/q1mi/hello v0.1.2-0.20210219092711-2ccfaddad6a3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>此时，我们打开<code>go.mod</code>文件就可以看到下载的依赖包及版本信息都已经被记录下来了。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello v0<span class="token punctuation">.</span><span class="token number">1.0</span> <span class="token comment">// indirect</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>行尾的<code>indirect</code>表示该依赖包为间接依赖，说明在当前程序中的所有 import 语句中没有发现引入这个包。</p> <p>另外在执行<code>go get</code>命令下载一个新的依赖包时一般会额外添加<code>-u</code>参数，强制更新现有依赖。</p> <p>第二种方式是我们直接编辑<code>go.mod</code>文件，将依赖包和版本信息写入该文件。例如我们修改<code>holiday/go.mod</code>文件内容如下：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello latest
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>表示当前项目需要使用<code>github.com/q1mi/hello</code>库的最新版本，然后在项目目录下执行<code>go mod download</code>下载依赖包。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holiday $ go mod download
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果不输出其它提示信息就说明依赖已经下载成功，此时<code>go.mod</code>文件已经变成如下内容。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello v0<span class="token punctuation">.</span><span class="token number">1.1</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>从中我们可以知道最新的版本号是<code>v0.1.1</code>。如果事先知道依赖包的具体版本号，可以直接在<code>go.mod</code>中指定需要的版本然后再执行<code>go mod download</code>下载。</p> <p>这种方法同样支持指定想要下载的commit进行下载，例如直接在<code>go.mod</code>文件中按如下方式指定commit hash，这里只写出来了commit hash的前7位。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello 2ccfadda
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>执行<code>go mod download</code>下载完依赖后，<code>go.mod</code>文件中对应的版本信息会自动更新为类似下面的格式。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello v0<span class="token punctuation">.</span><span class="token number">1.2</span><span class="token operator">-</span><span class="token number">0.20210219092711</span><span class="token operator">-</span>2ccfaddad6a3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>下载好要使用的依赖包之后，我们现在就可以在<code>holiday/main.go</code>文件中使用这个包了。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+
+	<span class="token string">&quot;github.com/q1mi/hello&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;现在是假期时间...&quot;</span><span class="token punctuation">)</span>
+
+	hello<span class="token punctuation">.</span><span class="token function">SayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 调用hello包的SayHi函数</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>将上述代码编译执行，就能看到执行结果了。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holiday $ go build
+holiday $ ./holiday
+现在是假期时间<span class="token punctuation">..</span>.
+你好，我是七米。很高兴认识你。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>当我们的项目功能越做越多，代码越来越多的时候，通常会选择在项目内部按功能或业务划分成多个不同包。Go语言支持在一个项目（project）下定义多个包（package）。</p> <p>例如，我们在<code>holiday</code>项目内部创建一个新的package——<code>summer</code>，此时新的项目目录结构如下：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>holidy
+├── go.mod
+├── go.sum
+├── main.go
+└── summer
+    └── summer.go
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>其中<code>holiday/summer/summer.go</code>文件内容如下：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> summer
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token comment">// Diving 潜水...</span>
+<span class="token keyword">func</span> <span class="token function">Diving</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;夏天去诗巴丹潜水...&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>此时想要在当前项目目录下的其他包或者<code>main.go</code>中调用这个<code>Diving</code>函数需要如何引入呢？这里以在<code>main.go</code>中演示详细的调用过程为例，在项目内其他包的引入方式类似。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+
+	<span class="token string">&quot;holiday/summer&quot;</span> <span class="token comment">// 导入当前项目下的包</span>
+
+	<span class="token string">&quot;github.com/q1mi/hello&quot;</span> <span class="token comment">// 导入github上第三方包</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;现在是假期时间...&quot;</span><span class="token punctuation">)</span>
+	hello<span class="token punctuation">.</span><span class="token function">SayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	summer<span class="token punctuation">.</span><span class="token function">Diving</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>从上面的示例可以看出，项目中定义的包都会以项目的导入路径为前缀。</p> <p>如果你想要导入本地的一个包，并且这个包也没有发布到到其他任何代码仓库，这时候你可以在<code>go.mod</code>文件中使用<code>replace</code>语句将依赖临时替换为本地的代码包。例如在我的电脑上有另外一个名为<code>liwenzhou.com/overtime</code>的项目，它位于<code>holiday</code>项目同级目录下：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>├── holiday
+│   ├── go.mod
+│   ├── go.sum
+│   ├── main.go
+│   └── summer
+│       └── summer.go
+└── overtime
+    ├── go.mod
+    └── overtime.go
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>由于<code>liwenzhou.com/overtime</code>包只存在于我本地，并不能通过网络获取到这个代码包，这个时候应该如何在<code>holidy</code>项目中引入它呢？</p> <p>我们可以在<code>holidy/go.mod</code>文件中正常引入<code>liwenzhou.com/overtime</code>包，然后像下面的示例那样使用<code>replace</code>语句将这个依赖替换为使用相对路径表示的本地包。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module holiday
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+require github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello v0<span class="token punctuation">.</span><span class="token number">1.1</span>
+require liwenzhou<span class="token punctuation">.</span>com<span class="token operator">/</span>overtime v0<span class="token punctuation">.</span><span class="token number">0.0</span>
+
+replace liwenzhou<span class="token punctuation">.</span>com<span class="token operator">/</span>overtime  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">/</span>overtime
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>这样，我们就可以在<code>holiday/main.go</code>下正常引入并使用<code>overtime</code>包了。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+
+	<span class="token string">&quot;holiday/summer&quot;</span> <span class="token comment">// 导入当前项目下的包</span>
+
+	<span class="token string">&quot;liwenzhou.com/overtime&quot;</span> <span class="token comment">// 通过replace导入的本地包</span>
+
+	<span class="token string">&quot;github.com/q1mi/hello&quot;</span> <span class="token comment">// 导入github上第三方包</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;现在是假期时间...&quot;</span><span class="token punctuation">)</span>
+	hello<span class="token punctuation">.</span><span class="token function">SayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	summer<span class="token punctuation">.</span><span class="token function">Diving</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	overtime<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>我们也经常使用<code>replace</code>将项目依赖中的某个包，替换为其他版本的代码包或我们自己修改后的代码包。</p> <p><strong>go.mod文件</strong></p> <p><code>go.mod</code>文件中记录了当前项目中所有依赖包的相关信息，声明依赖的格式如下：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>require module/path v1.2.3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>其中：</p> <ul><li>require：声明依赖的关键字</li> <li>module/path：依赖包的引入路径</li> <li>v1.2.3：依赖包的版本号。支持以下几种格式：
+<ul><li>latest：最新版本</li> <li>v1.0.0：详细版本号</li> <li>commit hash：指定某次commit hash</li></ul></li></ul> <p>引入某些没有发布过<code>tag</code>版本标识的依赖包时，<code>go.mod</code>中记录的依赖版本信息就会出现类似<code>v0.0.0-20210218074646-139b0bcd549d</code>的格式，由版本号、commit时间和commit的hash值组成。</p> <p><img src="https://www.liwenzhou.com/images/Go/package/module_version_info.png" alt="go module生成的版本信息组成示意图"></p> <p><strong>go.sum文件</strong></p> <p>使用go module下载了依赖后，项目目录下还会生成一个<code>go.sum</code>文件，这个文件中详细记录了当前项目中引入的依赖包的信息及其hash 值。<code>go.sum</code>文件内容通常是以类似下面的格式出现。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token keyword">go</span><span class="token punctuation">.</span>mod <span class="token operator">&lt;</span>hash<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>或者</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>hash<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>module<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token keyword">go</span><span class="token punctuation">.</span>mod <span class="token operator">&lt;</span>hash<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>不同于其他语言提供的基于中心的包管理机制，例如 npm 和 pypi等，Go并没有提供一个中央仓库来管理所有依赖包，而是采用分布式的方式来管理包。为了防止依赖包被非法篡改，Go module 引入了<code>go.sum</code>机制来对依赖包进行校验。</p> <p><strong>依赖保存位置</strong></p> <p>Go module 会把下载到本地的依赖包会以类似下面的形式保存在 <code>$GOPATH/pkg/mod</code>目录下，每个依赖包都会带有版本号进行区分，这样就允许在本地存在同一个包的多个不同版本。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>mod
+├── cache
+├── cloud.google.com
+├── github.com
+    	└──q1mi
+          ├── hello@v0.0.0-20210218074646-139b0bcd549d
+          ├── hello@v0.1.1
+          └── hello@v0.1.0
+<span class="token punctuation">..</span>.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>如果想清除所有本地已缓存的依赖包数据，可以执行 <code>go clean -modcache</code> 命令。</p> <h3 id="使用go-module发布包"><a href="#使用go-module发布包" class="header-anchor">#</a> 使用go module发布包</h3> <p>在上面的小节中我们学习了如何在项目中引入别人提供的依赖包，那么当我们想要在社区发布一个自己编写的代码包或者在公司内部编写一个供内部使用的公用组件时，我们该怎么做呢？接下来，我们就一起编写一个代码包并将它发布到<code>github.com</code>仓库，让它能够被全球的Go语言开发者使用。</p> <p>我们首先在自己的 github 账号下新建一个项目，并把它下载到本地。我这里就以创建和发布一个名为<code>hello</code>的项目为例进行演示。这个<code>hello</code>包将对外提供一个名为<code>SayHi</code>的函数，它的作用非常简单就是向调用者发去问候。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>$ <span class="token function">git</span> clone https://github.com/q1mi/hello
+$ <span class="token builtin class-name">cd</span> hello
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>我们当前位于<code>hello</code>项目目录下，执行下面的命令初始化项目，创建<code>go.mod</code>文件。需要注意的是这里定义项目的引入路径为<code>github.com/q1mi/hello</code>，读者在自行测试时需要将这部分替换为自己的仓库路径。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>hello $ go mod init github.com/q1mi/hello
+go: creating new go.mod: module github.com/q1mi/hello
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>接下来我们在该项目根目录下创建 <code>hello.go</code> 文件，添加下面的内容：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> hello
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">SayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;你好，我是七米。很高兴认识你。&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>然后将该项目的代码 push 到仓库的远端分支，这样就对外发布了一个Go包。其他的开发者可以通过<code>github.com/q1mi/hello</code>这个引入路径下载并使用这个包了。</p> <p>一个设计完善的包应该包含开源许可证及文档等内容，并且我们还应该尽心维护并适时发布适当的版本。github 上发布版本号使用git tag为代码包打上标签即可。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>hello $ <span class="token function">git</span> tag -a v0.1.0 -m <span class="token string">&quot;release version v0.1.0&quot;</span>
+hello $ <span class="token function">git</span> push origin v0.1.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>经过上面的操作我们就发布了一个版本号为<code>v0.1.0</code>的版本。</p> <p>Go modules中建议使用语义化版本控制，其建议的版本号格式如下：</p> <p><img src="https://www.liwenzhou.com/images/Go/package/version_number.png" alt="语义化版本号示意图"></p> <p>其中：</p> <ul><li>主版本号：发布了不兼容的版本迭代时递增（breaking changes）。</li> <li>次版本号：发布了功能性更新时递增。</li> <li>修订号：发布了bug修复类更新时递增。</li></ul> <p><strong>发布新的主版本</strong></p> <p>现在我们的<code>hello</code>项目要进行与之前版本不兼容的更新，我们计划让<code>SayHi</code>函数支持向指定人发出问候。更新后的<code>SayHi</code>函数内容如下：</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> hello
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token comment">// SayHi 向指定人打招呼的函数</span>
+<span class="token keyword">func</span> <span class="token function">SayHi</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">&quot;你好%s，我是七米。很高兴认识你。\n&quot;</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>由于这次改动巨大（修改了函数之前的调用规则），对之前使用该包作为依赖的用户影响巨大。因此我们需要发布一个主版本号递增的<code>v2</code>版本。在这种情况下，我们通常会修改当前包的引入路径，像下面的示例一样为引入路径添加版本后缀。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token comment">// hello/go.mod</span>
+
+module github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello<span class="token operator">/</span>v2
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>把修改后的代码提交：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>hello $ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+hello $ <span class="token function">git</span> commit -m <span class="token string">&quot;feat: SayHi现在支持给指定人打招呼啦&quot;</span>
+hello $ <span class="token function">git</span> push
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>打好 tag 推送到远程仓库。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>hello $ <span class="token function">git</span> tag -a v2.0.0 -m <span class="token string">&quot;release version v2.0.0&quot;</span>
+hello $ <span class="token function">git</span> push origin v2.0.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>这样在不影响使用旧版本的用户的前提下，我们新的版本也发布出去了。想要使用<code>v2</code>版本的代码包的用户只需按修改后的引入路径下载即可。</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>go get github.com/q1mi/hello/v2@v2.0.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>在代码中使用的过程与之前类似，只是需要注意引入路径要添加 v2 版本后缀。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+
+	<span class="token string">&quot;github.com/q1mi/hello/v2&quot;</span> <span class="token comment">// 引入v2版本</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;现在是假期时间...&quot;</span><span class="token punctuation">)</span>
+
+	hello<span class="token punctuation">.</span><span class="token function">SayHi</span><span class="token punctuation">(</span><span class="token string">&quot;张三&quot;</span><span class="token punctuation">)</span> <span class="token comment">// v2版本的SayHi函数需要传入字符串参数</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p><strong>废弃已发布版本</strong></p> <p>如果某个发布的版本存在致命缺陷不再想让用户使用时，我们可以使用<code>retract</code>声明废弃的版本。例如我们在<code>hello/go.mod</code>文件中按如下方式声明即可对外废弃<code>v0.1.2</code>版本。</p> <div class="language-go line-numbers-mode"><pre class="language-go"><code>module github<span class="token punctuation">.</span>com<span class="token operator">/</span>q1mi<span class="token operator">/</span>hello
+
+<span class="token keyword">go</span> <span class="token number">1.16</span>
+
+
+retract v0<span class="token punctuation">.</span><span class="token number">1.2</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>用户使用go get下载<code>v0.1.2</code>版本时就会收到提示，催促其升级到其他版本。</p> <h2 id="练习题"><a href="#练习题" class="header-anchor">#</a> 练习题</h2> <ol><li>编写一个<code>calc</code>包实现加减乘除四个功能函数，在<code>snow</code>这个包中引入<code>calc</code>包并调用其加减乘除四个函数实现数学运算。</li></ol> <hr></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/22/2022, 10:45:29 AM</span></div></footer> <!----> <!----></main> <!----> <div class="comments-wrapper" data-v-4698c43e><!----></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div><!----><div></div><!----><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="https://music.163.com/song/media/outer/url?id=1480361161.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>囧架架</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>十三叔</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/assets/js/app.c9a01fb9.js" defer></script><script src="/assets/js/4.14868eff.js" defer></script><script src="/assets/js/1.4ea549be.js" defer></script><script src="/assets/js/73.2eab8618.js" defer></script><script src="/assets/js/11.fc56e899.js" defer></script>
+  </body>
+</html>
