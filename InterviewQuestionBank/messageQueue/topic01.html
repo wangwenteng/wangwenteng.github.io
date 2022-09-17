@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>面试官：MQ 消息丢失、重复、积压问题，如何解决？ | 腾哥的学习笔记</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/custom.js"></script>
+    <meta name="description" content="~~~学习过程中笔记心得整理~~~">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="robots" content="all">
+    <meta name="author" content="腾哥">
+    
+    <link rel="preload" href="/assets/css/0.styles.5e2bd223.css" as="style"><link rel="preload" href="/assets/js/app.12ab6282.js" as="script"><link rel="preload" href="/assets/js/4.14868eff.js" as="script"><link rel="preload" href="/assets/js/1.4ea549be.js" as="script"><link rel="preload" href="/assets/js/21.f221d4b4.js" as="script"><link rel="preload" href="/assets/js/11.fc56e899.js" as="script"><link rel="prefetch" href="/assets/js/10.c264f0bf.js"><link rel="prefetch" href="/assets/js/100.5ebd4ec1.js"><link rel="prefetch" href="/assets/js/101.27152007.js"><link rel="prefetch" href="/assets/js/102.3073e6bc.js"><link rel="prefetch" href="/assets/js/103.f118d2e2.js"><link rel="prefetch" href="/assets/js/104.07de8300.js"><link rel="prefetch" href="/assets/js/105.e9b55e65.js"><link rel="prefetch" href="/assets/js/106.d224a6c9.js"><link rel="prefetch" href="/assets/js/107.317bc4a1.js"><link rel="prefetch" href="/assets/js/108.4afb15dc.js"><link rel="prefetch" href="/assets/js/109.6fd2d51a.js"><link rel="prefetch" href="/assets/js/110.b3502683.js"><link rel="prefetch" href="/assets/js/111.c65145c6.js"><link rel="prefetch" href="/assets/js/112.459230ff.js"><link rel="prefetch" href="/assets/js/113.8b30f90f.js"><link rel="prefetch" href="/assets/js/114.50723dd0.js"><link rel="prefetch" href="/assets/js/115.929799d1.js"><link rel="prefetch" href="/assets/js/116.23d0e46d.js"><link rel="prefetch" href="/assets/js/117.86767af3.js"><link rel="prefetch" href="/assets/js/118.5001db79.js"><link rel="prefetch" href="/assets/js/119.e8e8f674.js"><link rel="prefetch" href="/assets/js/12.755862c6.js"><link rel="prefetch" href="/assets/js/120.bfe4cafa.js"><link rel="prefetch" href="/assets/js/121.1ab4b5b5.js"><link rel="prefetch" href="/assets/js/122.0db71183.js"><link rel="prefetch" href="/assets/js/123.c920e8aa.js"><link rel="prefetch" href="/assets/js/124.204f0a6b.js"><link rel="prefetch" href="/assets/js/125.ba240f94.js"><link rel="prefetch" href="/assets/js/126.36be11a1.js"><link rel="prefetch" href="/assets/js/127.89fbe69a.js"><link rel="prefetch" href="/assets/js/128.1dc14670.js"><link rel="prefetch" href="/assets/js/129.4463f0f6.js"><link rel="prefetch" href="/assets/js/13.f1035ad5.js"><link rel="prefetch" href="/assets/js/130.18459766.js"><link rel="prefetch" href="/assets/js/131.5812196f.js"><link rel="prefetch" href="/assets/js/132.e2f5eb31.js"><link rel="prefetch" href="/assets/js/133.348e1741.js"><link rel="prefetch" href="/assets/js/134.8bb5c2e5.js"><link rel="prefetch" href="/assets/js/135.4f76d0a6.js"><link rel="prefetch" href="/assets/js/136.9c889e87.js"><link rel="prefetch" href="/assets/js/137.25a798d5.js"><link rel="prefetch" href="/assets/js/138.3fa0e7df.js"><link rel="prefetch" href="/assets/js/139.23f801b4.js"><link rel="prefetch" href="/assets/js/14.0fe1152d.js"><link rel="prefetch" href="/assets/js/140.b7c33ebe.js"><link rel="prefetch" href="/assets/js/141.62524553.js"><link rel="prefetch" href="/assets/js/15.0aa59089.js"><link rel="prefetch" href="/assets/js/16.df53d7bb.js"><link rel="prefetch" href="/assets/js/17.34d7000b.js"><link rel="prefetch" href="/assets/js/18.f03f709d.js"><link rel="prefetch" href="/assets/js/19.a2b8613a.js"><link rel="prefetch" href="/assets/js/20.d096df59.js"><link rel="prefetch" href="/assets/js/22.1f6abcc4.js"><link rel="prefetch" href="/assets/js/23.5b6b637a.js"><link rel="prefetch" href="/assets/js/24.6ac3d8d1.js"><link rel="prefetch" href="/assets/js/25.ec6db305.js"><link rel="prefetch" href="/assets/js/26.a7ffafa1.js"><link rel="prefetch" href="/assets/js/27.f09bd05b.js"><link rel="prefetch" href="/assets/js/28.8b430632.js"><link rel="prefetch" href="/assets/js/29.d7647cfd.js"><link rel="prefetch" href="/assets/js/30.8cbb908a.js"><link rel="prefetch" href="/assets/js/31.2bdca446.js"><link rel="prefetch" href="/assets/js/32.ba6543b6.js"><link rel="prefetch" href="/assets/js/33.08cab0d1.js"><link rel="prefetch" href="/assets/js/34.b92e8841.js"><link rel="prefetch" href="/assets/js/35.de4f1506.js"><link rel="prefetch" href="/assets/js/36.0e5c628c.js"><link rel="prefetch" href="/assets/js/37.903c75d4.js"><link rel="prefetch" href="/assets/js/38.dd1366f6.js"><link rel="prefetch" href="/assets/js/39.bc859108.js"><link rel="prefetch" href="/assets/js/40.ffa48dd6.js"><link rel="prefetch" href="/assets/js/41.3e5292a2.js"><link rel="prefetch" href="/assets/js/42.2dedebce.js"><link rel="prefetch" href="/assets/js/43.e74f14bb.js"><link rel="prefetch" href="/assets/js/44.ac3be097.js"><link rel="prefetch" href="/assets/js/45.fce97a92.js"><link rel="prefetch" href="/assets/js/46.1ea7dc68.js"><link rel="prefetch" href="/assets/js/47.ca042516.js"><link rel="prefetch" href="/assets/js/48.5625f192.js"><link rel="prefetch" href="/assets/js/49.74ce9e26.js"><link rel="prefetch" href="/assets/js/5.b89c5eff.js"><link rel="prefetch" href="/assets/js/50.35a40dbb.js"><link rel="prefetch" href="/assets/js/51.9ab103bf.js"><link rel="prefetch" href="/assets/js/52.166af3ac.js"><link rel="prefetch" href="/assets/js/53.09a22ad5.js"><link rel="prefetch" href="/assets/js/54.858d78aa.js"><link rel="prefetch" href="/assets/js/55.febfc2ea.js"><link rel="prefetch" href="/assets/js/56.eaf7779c.js"><link rel="prefetch" href="/assets/js/57.af2afdcb.js"><link rel="prefetch" href="/assets/js/58.135e546f.js"><link rel="prefetch" href="/assets/js/59.661f0c06.js"><link rel="prefetch" href="/assets/js/6.3e150692.js"><link rel="prefetch" href="/assets/js/60.3fc8ade7.js"><link rel="prefetch" href="/assets/js/61.a70cc7a0.js"><link rel="prefetch" href="/assets/js/62.15cd2531.js"><link rel="prefetch" href="/assets/js/63.66fbe76c.js"><link rel="prefetch" href="/assets/js/64.e1c0191a.js"><link rel="prefetch" href="/assets/js/65.527b2c59.js"><link rel="prefetch" href="/assets/js/66.dc7cbbc4.js"><link rel="prefetch" href="/assets/js/67.3730ec13.js"><link rel="prefetch" href="/assets/js/68.9658958c.js"><link rel="prefetch" href="/assets/js/69.4f3a6171.js"><link rel="prefetch" href="/assets/js/7.5eb77440.js"><link rel="prefetch" href="/assets/js/70.8c4a5768.js"><link rel="prefetch" href="/assets/js/71.668d9f2e.js"><link rel="prefetch" href="/assets/js/72.1b775299.js"><link rel="prefetch" href="/assets/js/73.b7db9bef.js"><link rel="prefetch" href="/assets/js/74.d751f0ac.js"><link rel="prefetch" href="/assets/js/75.46c182c2.js"><link rel="prefetch" href="/assets/js/76.120c1813.js"><link rel="prefetch" href="/assets/js/77.4f7d67b0.js"><link rel="prefetch" href="/assets/js/78.97a8298b.js"><link rel="prefetch" href="/assets/js/79.5377d8e8.js"><link rel="prefetch" href="/assets/js/8.3c5591af.js"><link rel="prefetch" href="/assets/js/80.12c2642f.js"><link rel="prefetch" href="/assets/js/81.a9800ed6.js"><link rel="prefetch" href="/assets/js/82.0af0c97a.js"><link rel="prefetch" href="/assets/js/83.f5d138d0.js"><link rel="prefetch" href="/assets/js/84.c4897307.js"><link rel="prefetch" href="/assets/js/85.e5feb4cf.js"><link rel="prefetch" href="/assets/js/86.5de5b35e.js"><link rel="prefetch" href="/assets/js/87.3e87f48a.js"><link rel="prefetch" href="/assets/js/88.e8156690.js"><link rel="prefetch" href="/assets/js/89.83da30be.js"><link rel="prefetch" href="/assets/js/9.e6b7ce22.js"><link rel="prefetch" href="/assets/js/90.b2978d9d.js"><link rel="prefetch" href="/assets/js/91.8dca4951.js"><link rel="prefetch" href="/assets/js/92.e159c428.js"><link rel="prefetch" href="/assets/js/93.26468ee3.js"><link rel="prefetch" href="/assets/js/94.85b4303d.js"><link rel="prefetch" href="/assets/js/95.ae6a7737.js"><link rel="prefetch" href="/assets/js/96.0cd7e9d3.js"><link rel="prefetch" href="/assets/js/97.e10fa2b7.js"><link rel="prefetch" href="/assets/js/98.78b338ef.js"><link rel="prefetch" href="/assets/js/99.72290535.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.b584dfe5.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5e2bd223.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-4698c43e><div data-v-4698c43e><div id="loader-wrapper" class="loading-wrapper" data-v-1c4f0192 data-v-4698c43e data-v-4698c43e><div class="loader-main" data-v-1c4f0192><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-6cbeab0a data-v-4698c43e data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>腾哥的学习笔记</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>腾哥</span>
+            
+          <span data-v-6cbeab0a>2022 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-4698c43e><header class="navbar" data-v-4698c43e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">腾哥的学习笔记</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/消息队列/" class="nav-link"><i class="iconfont undefined"></i>
+  消息队列
+</a></li><li class="dropdown-item"><!----> <a href="/categories/golang/" class="nav-link"><i class="iconfont undefined"></i>
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言介绍/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言介绍
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="iconfont undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go web开发相关/" class="nav-link"><i class="iconfont undefined"></i>
+  go web开发相关
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言基础/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/golang标准库/" class="nav-link"><i class="iconfont undefined"></i>
+  golang标准库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言标准库/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言标准库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go单元测试/" class="nav-link"><i class="iconfont undefined"></i>
+  go单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go 常用组件和技巧/" class="nav-link"><i class="iconfont undefined"></i>
+  go 常用组件和技巧
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go 微服务/" class="nav-link"><i class="iconfont undefined"></i>
+  go 微服务
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据库相关/" class="nav-link"><i class="iconfont undefined"></i>
+  数据库相关
+</a></li><li class="dropdown-item"><!----> <a href="/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="iconfont undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kuberbetes/" class="nav-link"><i class="iconfont undefined"></i>
+  kuberbetes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/redis/" class="nav-link"><i class="iconfont undefined"></i>
+  redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术文章/" class="nav-link"><i class="iconfont undefined"></i>
+  技术文章
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-sticky"></i>
+      JAVA
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/java/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      GoLang
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言介绍/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  介绍、搭建
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言基础/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言常用标准库/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  标准库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/单元测试/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/golang/数据库相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/Web开发相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  Web开发
+</a></li><li class="dropdown-item"><!----> <a href="/golang/微服务相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/golang/常用组件和技巧/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  常用组件
+</a></li><li class="dropdown-item"><!----> <a href="/golang/GORM教程/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  GORM
+</a></li><li class="dropdown-item"><!----> <a href="/golang/消息队列/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/react/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>docker</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Go语言基础
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link"><i class="iconfont reco-document"></i>
+  kuberbetes
+</a></li><li class="dropdown-item"><!----> <a href="/redis/" class="nav-link"><i class="iconfont reco-document"></i>
+  redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      面试题库
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/InterviewQuestionBank/messageQueue/" class="nav-link router-link-active"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4698c43e></div> <aside class="sidebar" data-v-4698c43e><div class="personal-info-wrapper" data-v-6c8ffc9c><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-6c8ffc9c> <h3 class="name" data-v-6c8ffc9c>
+    腾哥
+  </h3> <div class="num" data-v-6c8ffc9c><div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>126</h3> <h6 data-v-6c8ffc9c>文章</h6></div> <div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>18</h3> <h6 data-v-6c8ffc9c>标签</h6></div></div> <hr data-v-6c8ffc9c></div> <nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/消息队列/" class="nav-link"><i class="iconfont undefined"></i>
+  消息队列
+</a></li><li class="dropdown-item"><!----> <a href="/categories/golang/" class="nav-link"><i class="iconfont undefined"></i>
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言介绍/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言介绍
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="iconfont undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go web开发相关/" class="nav-link"><i class="iconfont undefined"></i>
+  go web开发相关
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言基础/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/golang标准库/" class="nav-link"><i class="iconfont undefined"></i>
+  golang标准库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go语言标准库/" class="nav-link"><i class="iconfont undefined"></i>
+  go语言标准库
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go单元测试/" class="nav-link"><i class="iconfont undefined"></i>
+  go单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go 常用组件和技巧/" class="nav-link"><i class="iconfont undefined"></i>
+  go 常用组件和技巧
+</a></li><li class="dropdown-item"><!----> <a href="/categories/go 微服务/" class="nav-link"><i class="iconfont undefined"></i>
+  go 微服务
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据库相关/" class="nav-link"><i class="iconfont undefined"></i>
+  数据库相关
+</a></li><li class="dropdown-item"><!----> <a href="/categories/java/" class="nav-link"><i class="iconfont undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="iconfont undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kuberbetes/" class="nav-link"><i class="iconfont undefined"></i>
+  kuberbetes
+</a></li><li class="dropdown-item"><!----> <a href="/categories/redis/" class="nav-link"><i class="iconfont undefined"></i>
+  redis
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术文章/" class="nav-link"><i class="iconfont undefined"></i>
+  技术文章
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-sticky"></i>
+      JAVA
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/java/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      GoLang
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言介绍/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  介绍、搭建
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言基础/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  基础
+</a></li><li class="dropdown-item"><!----> <a href="/golang/go语言常用标准库/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  标准库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/单元测试/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  单元测试
+</a></li><li class="dropdown-item"><!----> <a href="/golang/数据库相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/golang/Web开发相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  Web开发
+</a></li><li class="dropdown-item"><!----> <a href="/golang/微服务相关/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/golang/常用组件和技巧/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  常用组件
+</a></li><li class="dropdown-item"><!----> <a href="/golang/GORM教程/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  GORM
+</a></li><li class="dropdown-item"><!----> <a href="/golang/消息队列/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front_end/summary.html" class="nav-link"><i class="iconfont reco-category"></i>
+  大纲
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/vue/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/front_end/react/00summary.html" class="nav-link"><i class="iconfont reco-document"></i>
+  react
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>docker</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/docker/" class="nav-link"><i class="iconfont undefined"></i>
+  Go语言基础
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/kubernetes/" class="nav-link"><i class="iconfont reco-document"></i>
+  kuberbetes
+</a></li><li class="dropdown-item"><!----> <a href="/redis/" class="nav-link"><i class="iconfont reco-document"></i>
+  redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      面试题库
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/InterviewQuestionBank/messageQueue/" class="nav-link router-link-active"><i class="iconfont reco-document"></i>
+  消息队列
+</a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>messageQueue</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/InterviewQuestionBank/messageQueue/" aria-current="page" class="sidebar-link">消息队列</a></li><li><a href="/InterviewQuestionBank/messageQueue/topic01.html" aria-current="page" class="active sidebar-link">面试官：MQ 消息丢失、重复、积压问题，如何解决？</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/InterviewQuestionBank/messageQueue/topic01.html#案例背景" class="sidebar-link">案例背景</a></li><li class="sidebar-sub-header"><a href="/InterviewQuestionBank/messageQueue/topic01.html#案例分析" class="sidebar-link">案例分析</a></li><li class="sidebar-sub-header"><a href="/InterviewQuestionBank/messageQueue/topic01.html#案例解答" class="sidebar-link">案例解答</a></li></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-6cbeab0a data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>面试官：MQ 消息丢失、重复、积压问题，如何解决？</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>腾哥</span>
+            
+          <span data-v-6cbeab0a>2022 - </span>
+          2022
+        </a></span></div></div> <div data-v-4698c43e><main class="page"><!----> <div class="page-title" style="display:none;"><h1>面试官：MQ 消息丢失、重复、积压问题，如何解决？</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>腾哥</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2022-06-21 22:02:00</span></i> <!----> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      消息队列
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block danger"><p class="custom-block-title">说明</p> <p>面试官在面试候选人时，如果发现候选人的简历中写了在项目中使用了</p> <blockquote><p>MQ 技术（如 Kafka、RabbitMQ、RocketMQ），基本都会抛出一个问题：在使用 MQ 的时候，怎么确保消息 100% 不丢失？</p></blockquote> <p>这个问题在实际工作中很常见，既能考察候选者对于 MQ 中间件技术的掌握程度，又能很好地区分候选人的能力水平。接下来，我们就从这个问题出发，探讨你应该掌握的基础知识和答题思路，以及延伸的面试考点。</p></div> <h2 id="案例背景"><a href="#案例背景" class="header-anchor">#</a> 案例背景</h2> <p>以京东系统为例，用户在购买商品时，通常会选择用京豆抵扣一部分的金额，在这个过程中，交易服务和京豆服务通过 MQ 消息队列进行通信。在下单时，交易服务发送“扣减账户 X 100 个京豆”的消息给 MQ 消息队列，而京豆服务则在消费端消费这条命令，实现真正的扣减操作。</p> <p><img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h69i26d7hlj20ze07e753.jpg" alt="image-20220917124135945">
+那在这个过程中你会遇到什么问题呢？</p> <h2 id="案例分析"><a href="#案例分析" class="header-anchor">#</a> 案例分析</h2> <p>要知道，在互联网面试中，引入 MQ 消息中间件最直接的目的是：做系统解耦合流量控制，追其根源还是为了解决互联网系统的高可用和高性能问题。</p> <h3 id="系统解耦"><a href="#系统解耦" class="header-anchor">#</a> 系统解耦：</h3> <blockquote><p>用MQ消息队列，可以隔离系统上下游环境变化带来的不稳定因素，比如京豆服务的系统需求无论如何变化，交易服务不用做任何改变，即使当京豆服务出现故障，主交易流程也可以将京豆服务降级，实现交易服务和京豆服务的解耦，做到了系统的高可用。</p></blockquote> <h3 id="流量控制"><a href="#流量控制" class="header-anchor">#</a> 流量控制：</h3> <blockquote><p>遇到秒杀等流量突增的场景，通过 MQ 还可以实现流量的“削峰填谷”的作用，可以根据下游的处理能力自动调节流量。不过引入 MQ虽然实现了系统解耦合流量控制，也会带来其他问题。</p> <p>引入 MQ 消息中间件实现系统解耦，会影响系统之间数据传输的一致性。
+在分布式系统中，如果两个节点之间存在数据同步，就会带来数据一致性的问题。同理，在这一讲你要解决的就是：消息生产端和消息消费端的消息数据一致性问题（也就是如何确保消息不丢失）。</p></blockquote> <p>而引入MQ 消息中间件解决流量控制， 会使消费端处理能力不足从而导致消息积压，这也是你要解决的问题。</p> <p>所以你能发现，问题与问题之间往往是环环相扣的，面试官会借机考察你解决问题思路的连贯性和知识体系的掌握程度。</p> <p>那面对“在使用 MQ 消息队列时，如何确保消息不丢失”这个问题时，你要怎么回答呢？首先，你要分析其中有几个考点，比如：</p> <p><strong>如何知道有消息丢失？</strong></p> <p><strong>哪些环节可能丢消息？</strong></p> <p><strong>如何确保消息不丢失？</strong></p> <p>候选人在回答时，要先让面试官知道你的分析思路，然后再提供解决方案：网络中的数据传输不可靠，想要解决如何不丢消息的问题，首先要知道哪些环节可能丢消息，以及我们如何知道消息是否丢失了，最后才是解决方案（而不是上来就直接说自己的解决方案）。就好比“架构设计”“架构”体现了架构师的思考过程，而“设计”才是最后的解决方案，两者缺一不可。</p> <h2 id="案例解答"><a href="#案例解答" class="header-anchor">#</a> 案例解答</h2> <p>我们首先来看消息丢失的环节，一条消息从生产到消费完成这个过程，可以划分三个阶段，分别为消息生产阶段，消息存储阶段和消息消费阶段。
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h69i1tqmg9j20ze07e753.jpg" alt="image-20220917124114986"> <strong>消息生产阶段：</strong></p> <blockquote><p>从消息被生产出来，然后提交给 MQ 的过程中，只要能正常收到 MQ Broker 的 ack
+确认响应，就表示发送成功，所以只要处理好返回值和异常，这个阶段是不会出现消息丢失的。</p></blockquote> <p><strong>消息存储阶段：</strong></p> <blockquote><p>这个阶段一般会直接交给 MQ 消息中间件来保证，但是你要了解它的原理，比如 Broker 会做副本，保证一条消息至少同步两个节点再返回ack。</p></blockquote> <p><strong>消息消费阶段：</strong></p> <blockquote><p>消费端从 Broker 上拉取消息，只要消费端在收到消息后，不立即发送消费确认给
+Broker，而是等到执行完业务逻辑后，再发送消费确认，也能保证消息的不丢失。</p></blockquote> <p>方案看似万无一失，每个阶段都能保证消息的不丢失，但在分布式系统中，故障不可避免，作为消息生产端，你并不能保证 MQ 是不是弄丢了你的消息，消费者是否消费了你的消息，所以，本着 Design for Failure 的设计原则，你还是需要一种机制，来 Check 消息是否丢失了。</p> <p><strong>紧接着，你还可以向面试官阐述怎么进行消息检测？</strong></p> <blockquote><p>总体方案解决思路为：在消息生产端，给每个发出的消息都指定一个全局唯一 ID，或者附加一个连续递增的版本号，然后在消费端做对应的版本校验。</p></blockquote> <p><strong>具体怎么落地实现呢？</strong>
+你可以利用拦截器机制。在生产端发送消息之前，通过拦截器将消息版本号注入消息中（版本号可以采用连续递增的 ID 生成，也可以通过分布式全局唯一 ID生成）。然后在消费端收到消息后，再通过拦截器检测版本号的连续性或消费状态，这样实现的好处是消息检测的代码不会侵入到业务代码中，可以通过单独的任务来定位丢失的消息，做进一步的排查。</p> <p><strong>这里需要你注意：</strong>
+如果同时存在多个消息生产端和消息消费端，通过版本号递增的方式就很难实现了，因为不能保证版本号的唯一性，此时只能通过全局唯一 ID 的方案来进行消息检测，具体的实现原理和版本号递增的方式一致。</p> <p>现在，你已经知道了哪些环节（消息存储阶段、消息消费阶段）可能会出问题，并有了如何检测消息丢失的方案，然后就要给出解决防止消息丢失的设计方案。</p> <p><strong>回答完“如何确保消息不会丢失？” 之后，面试官通常会追问“怎么解决消息被重复消费的问题？”</strong></p> <blockquote><p>比如：在消息消费的过程中，如果出现失败的情况，通过补偿的机制发送方会执行重试，重试的过程就有可能产生重复的消息，那么如何解决这个问题？</p></blockquote> <p>这个问题其实可以换一种说法，就是如何解决消费端幂等性问题（幂等性，就是一条命令，任意多次执行所产生的影响均与一次执行的影响相同），只要消费端具备了幂等性，那么重复消费消息的问题也就解决了。</p> <p>我们还是来看扣减京豆的例子，将账户 X 的金豆个数扣减 100 个，在这个例子中，我们可以通过改造业务逻辑，让它具备幂等性。
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h69hpi8sazj20u00cl758.jpg" alt="图片"> <strong>最简单的实现方案，就是在数据库中建一张消息日志表，</strong>
+这个表有两个字段：消息 ID 和消息执行状态。这样，我们消费消息的逻辑可以变为：在消息日志表中增加一条消息记录，然后再根据消息记录，异步操作更新用户京豆余额。</p> <p>因为我们每次都会在插入之前检查是否消息已存在，所以就不会出现一条消息被执行多次的情况，这样就实现了一个幂等的操作。当然，基于这个思路，不仅可以使用关系型数据库，也可以通过 Redis 来代替数据库实现唯一约束的方案。</p> <p>在这里我多说一句，想要解决“消息丢失”和“消息重复消费”的问题，有一个前提条件就是要实现一个全局唯一 ID 生成的技术方案。这也是面试官喜欢考察的问题，你也要掌握。</p> <p>在分布式系统中，全局唯一 ID 生成的实现方法有数据库自增主键、UUID、Redis，Twitter-Snowflake 算法，我总结了几种方案的特点，你可以参考下。
+<img src="https://tva1.sinaimg.cn/large/e6c9d24ely1h69hpfg3pyj20u00dp764.jpg" alt="图片">
+我提醒你注意，无论哪种方法，如果你想同时满足简单、高可用和高性能，就要有取舍，所以你要站在实际的业务中，说明你的选型所考虑的平衡点是什么。我个人在业务中比较倾向于选择 Snowflake 算法，在项目中也进行了一定的改造，主要是让算法中的 ID 生成规则更加符合业务特点，以及优化诸如时钟回拨等问题。</p> <p><strong>当然，除了“怎么解决消息被重复消费的问题？”之外，面试官还会问到你“消息积压”。</strong></p> <blockquote><p>原因在于消息积压反映的是性能问题，解决消息积压问题，可以说明候选者有能力处理高并发场景下的消费能力问题。</p></blockquote> <p><strong>你在解答这个问题时，依旧要传递给面试官一个这样的思考过程：</strong></p> <blockquote><p>如果出现积压，那一定是性能问题，想要解决消息从生产到消费上的性能问题，就首先要知道哪些环节可能出现消息积压，然后在考虑如何解决。</p></blockquote> <p>因为消息发送之后才会出现积压的问题，所以和消息生产端没有关系，又因为绝大部分的消息队列单节点都能达到每秒钟几万的处理能力，相对于业务逻辑来说，性能不会出现在中间件的消息存储上面。毫无疑问，出问题的肯定是消息消费阶段，
+<strong>那么从消费端入手，如何回答呢？</strong></p> <blockquote><p>如果是线上突发问题，要临时扩容，增加消费端的数量，与此同时，降级一些非核心的业务。通过扩容和降级承担流量，这是为了表明你对应急问题的处理能力。</p> <p>其次，才是排查解决异常问题，如通过监控，日志等手段分析是否消费端的业务逻辑代码出现了问题，优化消费端的业务处理逻辑。</p></blockquote> <p>最后，如果是消费端的处理能力不足，可以通过水平扩容来提供消费端的并发处理能力
+<strong>但这里有一个考点需要特别注意，</strong></p> <blockquote><p>那就是在扩容消费者的实例数的同时，必须同步扩容主题 Topic
+的分区数量，确保消费者的实例数和分区数相等。如果消费者的实例数超过了分区数，由于分区是单线程消费，所以这样的扩容就没有效果。</p></blockquote> <p>比如在Kafka 中，一个 Topic 可以配置多个 Partition（分区），数据会被写入到多个分区中，但在消费的时候，Kafka 约定一个分区只能被一个消费者消费，Topic 的分区数量决定了消费的能力，所以，可以通过增加分区来提高消费者的处理能力。</p> <p>总结 至此，我们讲解了 MQ 消息队列的热门问题的解决方案，无论是初中级还是高级研发工程师，本篇文章的内容都是你需要掌握的，你都可以从这几点出发，与面试官进行友好的交流。我来总结一下今天的重点内容。</p> <h3 id="如何确保消息不会丢失"><a href="#如何确保消息不会丢失" class="header-anchor">#</a> <strong>如何确保消息不会丢失？</strong></h3> <blockquote><p>你要知道一条消息从发送到消费的每个阶段，是否存在丢消息，以及如何监控消息是否丢失，最后才是如何解决问题，方案可以基于“ MQ 的可靠消息投递
+”的方式。</p></blockquote> <h3 id="如何保证消息不被重复消费"><a href="#如何保证消息不被重复消费" class="header-anchor">#</a> <strong>如何保证消息不被重复消费？</strong></h3> <blockquote><p>在进行消息补偿的时候，一定会存在重复消息的情况，那么如何实现消费端的幂等性就这道题的考点。</p></blockquote> <h3 id="如何处理消息积压问题"><a href="#如何处理消息积压问题" class="header-anchor">#</a> <strong>如何处理消息积压问题？</strong></h3> <blockquote><p>这道题的考点就是如何通过 MQ
+实现真正的高性能，回答的思路是，本着解决线上异常为最高优先级，然后通过监控和日志进行排查并优化业务逻辑，最后是扩容消费端和分片的数量。</p></blockquote> <p>在回答问题的时候，你需要特别注意的是，让面试官了解到你的思维过程，这种解决问题的能力是面试官更为看中的，比你直接回答一道面试题更有价值。</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">9/17/2022, 2:20:12 PM</span></div></footer> <!----> <!----></main> <!----> <div class="comments-wrapper" data-v-4698c43e><!----></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div><!----><div></div><!----><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="https://music.163.com/song/media/outer/url?id=1480361161.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>囧架架</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>十三叔</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div></div></div>
+    <script src="/assets/js/app.12ab6282.js" defer></script><script src="/assets/js/4.14868eff.js" defer></script><script src="/assets/js/1.4ea549be.js" defer></script><script src="/assets/js/21.f221d4b4.js" defer></script><script src="/assets/js/11.fc56e899.js" defer></script>
+  </body>
+</html>
